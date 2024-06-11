@@ -1,7 +1,10 @@
+import NavBar from "../components/NavBar";
+
 function Home() {
   return (
     <div>
-      <p className='text-yellowPrimary text-3xl'>Home</p>
+      <NavBar />
+      <p>Home</p>
     </div>
   );
 }

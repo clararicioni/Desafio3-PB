@@ -5,10 +5,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ["Poppins","sans-serif"],
+      },
       colors: {
         yellowPrimary: '#B88E2F',
+        yellowBackground: '#FFF3E3',
+        darkGrayText: '#3A3A3A',
         grayText: '#9F9F9F',
+        grayBackground: '#F4F5F7',
         salmon: '#FAF3EA',
+        salmonHome: '#FCF8F3',
+        salmonNew: '#E97171',
+        cyanNew: '#2EC1AC',
       },
     },
   },
