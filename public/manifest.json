@@ -13,6 +13,26 @@
     {
       "src": "cart-icon.svg",
       "type": "svg"
+    },
+    {
+      "src": "face.png",
+      "type": "image/png"
+    },
+    {
+      "src": "insta.png",
+      "type": "image/png"
+    },
+    {
+      "src": "linkedin.png",
+      "type": "image/png"
+    },
+    {
+      "src": "twitter.png",
+      "type": "image/png"
+    },
+    {
+      "src": "home-bg1.jpeg",
+      "type": "image/png"
     }
   ],
   "start_url": ".",

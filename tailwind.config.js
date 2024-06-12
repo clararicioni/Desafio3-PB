@@ -5,6 +5,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        '1xl':'16px',
+      },
+      spacing: {
+        '50px': '50px',
+        '16px' : '16px',
+      },
       fontFamily: {
         poppins: ["Poppins","sans-serif"],
       },
