@@ -39,6 +39,34 @@ function Home() {
             </div>
           </div>
         </div>
+        <div className="flex flex-col px-4">
+          <section className="text-darkBlack text-2xl sm:text-3xl lg:text-4xl font-bold mt-8 sm:mt-12 flex justify-center">
+            Browse The Range
+          </section>
+          <section className="text-darkGrayText2 text-base sm:text-lg lg:text-xl font-normal flex justify-center mt-2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </section>
+        </div>
+        <div className="flex flex-wrap gap-6 justify-center mt-8 sm:mt-10 lg:mt-14">
+          <div className="flex flex-col items-center w-1/2 sm:w-1/3 md:w-1/4">
+            <img src="dining.png" alt="Dining" className="w-full h-auto" />
+            <section className="text-darkBlack text-lg sm:text-xl lg:text-2xl mt-4 sm:mt-5 lg:mt-7 font-semibold">
+              Dining
+            </section>
+          </div>
+          <div className="flex flex-col items-center w-1/2 sm:w-1/3 md:w-1/4">
+            <img src="living.png" alt="Living" className="w-full h-auto" />
+            <section className="text-darkBlack text-lg sm:text-xl lg:text-2xl mt-4 sm:mt-5 lg:mt-7 font-semibold">
+              Living
+            </section>
+          </div>
+          <div className="flex flex-col items-center w-1/2 sm:w-1/3 md:w-1/4">
+            <img src="bedroom.png" alt="Bedroom" className="w-full h-auto" />
+            <section className="text-darkBlack text-lg sm:text-xl lg:text-2xl mt-4 sm:mt-5 lg:mt-7 font-semibold">
+              Bedroom
+            </section>
+          </div>
+        </div>
         <Footer />
       </div>
     </div>

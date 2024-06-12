@@ -81,6 +81,18 @@
     {
       "src": "potty.png",
       "type": "image/png"
+    },
+    {
+      "src": "dining.png",
+      "type": "image/png"
+    },
+    {
+      "src": "living.png",
+      "type": "image/png"
+    },
+    {
+      "src": "bedroom.png",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
