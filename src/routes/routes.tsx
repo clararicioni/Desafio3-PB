@@ -7,6 +7,7 @@ import Checkout from "../pages/Checkout";
 import Cart from "../pages/Cart";
 import Login from "../pages/Login";
 import ProtectedRoute from "./ProtectedRoute";
+import Register from "../pages/Register"
 
 function MainRoutes(){
     return(
@@ -15,9 +16,10 @@ function MainRoutes(){
         <Route path="/shop" element={<Shop />} />
         <Route path="/singleproduct" element={<SingleProduct />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/checkout" element={<ProtectedRoute path="/checkout" element={<Checkout />} />} />
+        <Route path="/checkout" element={<ProtectedRoute element={<Checkout />} />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
     </Routes>
     )
 }
