@@ -13,6 +13,8 @@ module.exports = {
         '1xl':'16px',
         '52px':'52px',
         '18px':'18px',
+        '40px':'40px',
+        '20px':'20px',
       },
       spacing: {
         '50px': '50px',
@@ -26,6 +28,8 @@ module.exports = {
         yellowBackground: '#FFF3E3',
         darkGrayText: '#3A3A3A',
         darkGrayText2: '#666666',
+        grayText3: '#898989',
+        grayText4: '#B0B0B0',
         grayText: '#9F9F9F',
         grayBackground: '#F4F5F7',
         salmon: '#FAF3EA',
@@ -33,7 +37,6 @@ module.exports = {
         salmonNew: '#E97171',
         cyanNew: '#2EC1AC',
         darkBlack: '#333333',
-        
       },
     },
   },
