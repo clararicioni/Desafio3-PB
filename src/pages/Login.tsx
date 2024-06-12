@@ -1,7 +1,7 @@
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { auth, FacebookAuth } from "../services/firebaseConfig";
+import { auth, FacebookAuth, GoogleAuth } from "../services/firebaseConfig";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,6 +18,17 @@ const Login = () => {
       }
     } catch (error) {
       console.error("Erro ao autenticar com Facebook:", error);
+    }
+  };
+
+  const handleGoogleAuth = async () => {
+    try {
+      const user = await GoogleAuth();
+      if (user) {
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Erro ao autenticar com Google:", error);
     }
   };
 
@@ -77,6 +88,13 @@ const Login = () => {
               className="mt-5 bg-blue-800 hover:opacity-75 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Login with Facebook
+            </button>
+            <button
+              type="button"
+              onClick={handleGoogleAuth}
+              className="mt-5 bg-red-800 hover:opacity-75 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Login with Google
             </button>
           </div>
         </form>

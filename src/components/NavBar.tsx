@@ -113,13 +113,13 @@ const Navbar = () => {
         <div className="fixed top-16 right-4 bg-white border border-gray-300 rounded-lg shadow-lg p-4 z-50">
             Usuário:{" "}
             {auth.currentUser ? (
-              <div>
+              <div className="font-bold">
                 {auth.currentUser.displayName || auth.currentUser.email}
               </div>
             ) : (
               <div>N/A</div>
             )}
-          <button onClick={handleLogout}>Deslogar</button>
+          <button className="bg-red-800 hover:opacity-75 p-2 mt-3 text-white font-bold rounded-md" onClick={handleLogout}>Deslogar</button>
         </div>
       )}
     </>
