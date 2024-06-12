@@ -1,6 +1,7 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import ProductCard from "../components/ProductCard";
 
 function Home() {
   return (
@@ -66,6 +67,86 @@ function Home() {
               Bedroom
             </section>
           </div>
+        </div>
+
+        <section className="text-40px font-bold flex justify-center mt-20 text-darkGrayText">
+          Our Products
+        </section>
+        <div className="flex flex-wrap justify-center mt-8 gap-8">
+          <ProductCard
+            id={1}
+            name="Syltherine"
+            price={"2.500.000"}
+            description="Stylish cafe chair"
+            imageUrl="syltherine.png"
+            oldPrice={"3.500.000"}
+          />
+          <ProductCard
+            id={2}
+            name="Leviosa"
+            price={"2.500.000"}
+            description="Slytherin house merchandise."
+            imageUrl="leviosa.png"
+            oldPrice={null}
+          />
+          <ProductCard
+            id={3}
+            name="Slytherin"
+            price={"7.000.000"}
+            description="Slytherin house merchandise."
+            imageUrl="lolito.png"
+            oldPrice={"14.000.000"}
+          />
+          <ProductCard
+            id={4}
+            name="Slytherin"
+            price={"500.000"}
+            description="Slytherin house merchandise."
+            imageUrl="respira.png"
+            oldPrice={null}
+          />
+          <ProductCard
+            id={5}
+            name="Grifo"
+            price={"1.500.000"}
+            description="Slytherin house merchandise."
+            imageUrl="grifo.png"
+            oldPrice={null}
+          />
+          <ProductCard
+            id={6}
+            name="Muggo"
+            price={"150.000"}
+            description="Slytherin house merchandise."
+            imageUrl="muggo.png"
+            oldPrice={null}
+          />
+          <ProductCard
+            id={7}
+            name="Pingky"
+            price={"7.000.000"}
+            description="Slytherin house merchandise."
+            imageUrl="pingky.png"
+            oldPrice={"14.000.000"}
+          />
+          <ProductCard
+            id={7}
+            name="Potty"
+            price={"500.000"}
+            description="Slytherin house merchandise."
+            imageUrl="potty.png"
+            oldPrice={null}
+          />
+        </div>
+        <div className="flex justify-center">
+          <Link to="/shop" target="_blank">
+            <button
+              className="flex justify-center items-center font-bold text-1xl text-yellowPrimary p-5 outline-1 outline hover:opacity-75 mt-10"
+              style={{ width: "245px", height: "48px" }}
+            >
+              Show More
+            </button>
+          </Link>
         </div>
         <Footer />
       </div>
