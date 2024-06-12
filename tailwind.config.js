@@ -5,8 +5,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      maxWidth:{
+        '400px':'400px',
+        '546px':'546px',
+      },
       fontSize: {
         '1xl':'16px',
+        '52px':'52px',
+        '18px':'18px',
       },
       spacing: {
         '50px': '50px',
@@ -25,6 +31,7 @@ module.exports = {
         salmonHome: '#FCF8F3',
         salmonNew: '#E97171',
         cyanNew: '#2EC1AC',
+        darkBlack: '#333333'
       },
     },
   },

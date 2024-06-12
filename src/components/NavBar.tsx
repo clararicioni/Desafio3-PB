@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-white outline-none font-poppins fixed w-full overflow">
+      <div className="bg-white outline-none font-poppins w-full fixed z-50">
         <div className="flex items-center justify-between p-4 font-medium">
           <div className="flex items-center space-x-0">
             <img src="logo.png" className="max-h-20 m-0" alt="Logo" />
@@ -111,15 +111,20 @@ const Navbar = () => {
       </div>
       {isProfilePopupOpen && (
         <div className="fixed top-16 right-4 bg-white border border-gray-300 rounded-lg shadow-lg p-4 z-50">
-            Usuário:{" "}
-            {auth.currentUser ? (
-              <div className="font-bold">
-                {auth.currentUser.displayName || auth.currentUser.email}
-              </div>
-            ) : (
-              <div>N/A</div>
-            )}
-          <button className="bg-red-800 hover:opacity-75 p-2 mt-3 text-white font-bold rounded-md" onClick={handleLogout}>Deslogar</button>
+          Usuário:{" "}
+          {auth.currentUser ? (
+            <div className="font-bold">
+              {auth.currentUser.displayName || auth.currentUser.email}
+            </div>
+          ) : (
+            <div>N/A</div>
+          )}
+          <button
+            className="bg-red-800 hover:opacity-75 p-2 mt-3 text-white font-bold rounded-md"
+            onClick={handleLogout}
+          >
+            Deslogar
+          </button>
         </div>
       )}
     </>
