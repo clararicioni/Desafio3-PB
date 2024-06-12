@@ -33,6 +33,54 @@
     {
       "src": "home-bg1.jpeg",
       "type": "image/png"
+    },
+    {
+      "src": "syltherine.png",
+      "type": "image/png"
+    },
+    {
+      "src": "leviosa.png",
+      "type": "image/png"
+    },
+    {
+      "src": "lolito.png",
+      "type": "image/png"
+    },
+    {
+      "src": "respira.png",
+      "type": "image/png"
+    },
+    {
+      "src": "graystress.png",
+      "type": "image/png"
+    },
+    {
+      "src": "pinkemotion.png",
+      "type": "image/png"
+    },
+    {
+      "src": "sleeping.png",
+      "type": "image/png"
+    },
+    {
+      "src": "bigrelax.png",
+      "type": "image/png"
+    },
+    {
+      "src": "grifo.png",
+      "type": "image/png"
+    },
+    {
+      "src": "muggo.png",
+      "type": "image/png"
+    },
+    {
+      "src": "pingky.png",
+      "type": "image/png"
+    },
+    {
+      "src": "potty.png",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
