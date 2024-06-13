@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      padding:{
+        '100px':'100px',
+      },
       maxWidth:{
         '400px':'400px',
         '546px':'546px',
@@ -15,6 +18,7 @@ module.exports = {
         '18px':'18px',
         '40px':'40px',
         '20px':'20px',
+        '25px':'25px',
       },
       spacing: {
         '50px': '50px',
@@ -37,6 +41,7 @@ module.exports = {
         salmonNew: '#E97171',
         cyanNew: '#2EC1AC',
         darkBlack: '#333333',
+        darkBlack2: '#242424',
       },
     },
   },
