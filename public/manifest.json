@@ -93,6 +93,18 @@
     {
       "src": "bedroom.png",
       "type": "image/png"
+    },
+    {
+      "src": "compare.png",
+      "type": "image/png"
+    },
+    {
+      "src": "like.png",
+      "type": "image/png"
+    },
+    {
+      "src": "share.png",
+      "type": "image/png"
     }
   ],
   "start_url": ".",

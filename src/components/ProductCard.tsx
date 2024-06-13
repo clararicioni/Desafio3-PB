@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface CardProps {
   id: number;
@@ -17,21 +18,81 @@ const ProductCard: React.FC<CardProps> = ({
   imageUrl,
   oldPrice,
 }) => {
+  const [hovered, setHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
+
+  const handleCardClick = (e: React.MouseEvent) => {
+    if (
+      (e.target as HTMLElement).closest(".prevent-default") ||
+      (e.target as HTMLElement).tagName === "BUTTON"
+    ) {
+      e.stopPropagation();
+      return;
+    }
+    window.open("/singleproduct", "_blank");
+  };
+
   return (
-    <div className="max-w-sm rounded overflow-hidden bg-grayBackground">
-      <img className="h-80 w-72 object-cover" src={imageUrl} alt={name} />
-      <div className="px-6 py-4">
-        <div className="font-bold text-2xl mb-2 text-darkGrayText">{name}</div>
+    <div
+      className="max-w-sm rounded overflow-hidden bg-grayBackground relative group cursor-pointer"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleCardClick}
+    >
+      <img className="h-80 w-full object-cover" src={imageUrl} alt={name} />
+      <div className="px-4 py-4">
+        <div className="font-bold text-xl mb-2 text-darkGrayText">{name}</div>
         <section className="text-grayText3 font-medium">{description}</section>
-        <div className="flex items-baseline gap-2 ">
-          <section className="text-darkGrayText mt-2 text-20px font-semibold">
+        <div className="flex items-baseline gap-2 mt-2">
+          <section className="text-gray-800 text-lg font-semibold">
             Rp {price}
           </section>
           {oldPrice != null && (
-            <section className="text-grayText4 text-1xl line-through ml-2 font-normal">
+            <section className="text-grayText4 text-base line-through ml-2 font-normal">
               Rp {oldPrice}
             </section>
           )}
+        </div>
+      </div>
+      <div
+        className={`absolute inset-0 bg-black opacity-0 rounded transition-opacity duration-300 ${
+          hovered ? "opacity-50" : ""
+        }`}
+      ></div>
+      <div
+        className={`absolute inset-0 flex flex-col items-center justify-center space-y-2 transition-opacity duration-300 ${
+          hovered ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <Link to="/cart" target="_blank" className="prevent-default">
+          <button
+            className="bg-white text-yellowPrimary font-semibold hover:opacity-75 z-20"
+            style={{ width: "202px", height: "48px" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            Add to cart
+          </button>
+        </Link>
+        <div className="flex space-x-4 z-20">
+          <button className="flex items-center text-white space-x-2 hover:opacity-75 prevent-default">
+            <img src="share.png" alt="Share" className="h-5 w-5" />
+            <span>Share</span>
+          </button>
+          <button className="flex items-center text-white space-x-2 hover:opacity-75 prevent-default">
+            <img src="compare.png" alt="Compare" className="h-5 w-5" />
+            <span>Compare</span>
+          </button>
+          <button className="flex items-center text-white space-x-2 hover:opacity-75 prevent-default">
+            <img src="like.png" alt="Like" className="h-5 w-5" />
+            <span>Like</span>
+          </button>
         </div>
       </div>
     </div>
