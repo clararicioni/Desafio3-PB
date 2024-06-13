@@ -105,6 +105,22 @@
     {
       "src": "share.png",
       "type": "image/png"
+    },
+    {
+      "src": "protection.png",
+      "type": "image/png"
+    },
+    {
+      "src": "shipping.png",
+      "type": "image/png"
+    },
+    {
+      "src": "suport.png",
+      "type": "image/png"
+    },
+    {
+      "src": "trophy.png",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
