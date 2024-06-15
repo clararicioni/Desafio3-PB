@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      borderRadius:{
+        '10px':'10px',
+      },
       padding:{
         '100px':'100px',
       },

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 type InitialSectionProps = {
   pageName: string;
@@ -13,8 +14,14 @@ const InitialSection: React.FC<InitialSectionProps> = ({ pageName }) => {
           <img src="logo.png" className="w-20" alt="logo" />
           <h1 className="text-5xl font-medium text-black mb-4">{pageName}</h1>
           <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-5">
-            <span className="font-medium text-black text-base sm:text-lg">Home</span>
-            <span className="font-medium text-black text-base sm:text-lg">{'>'}</span>
+            <Link to="/">
+              <span className="font-medium text-black text-base sm:text-lg hover:underline">
+                Home
+              </span>
+            </Link>
+            <span className="font-medium text-black text-base sm:text-lg">
+              {">"}
+            </span>
             <span className="font-light text-base sm:text-lg">{pageName}</span>
           </div>
         </div>
