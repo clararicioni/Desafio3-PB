@@ -2,12 +2,13 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
+import CarouselSection from "../components/CarouselSection";
 
 function Home() {
   return (
     <div>
       <NavBar />
-      <div className="font-poppins">
+      <div className="font-poppins select-none">
         <div
           className="flex items-center justify-center min-h-screen relative"
           style={{
@@ -148,6 +149,7 @@ function Home() {
             </button>
           </Link>
         </div>
+        <CarouselSection />
         <Footer />
       </div>
     </div>

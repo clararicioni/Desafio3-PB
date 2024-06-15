@@ -3,7 +3,7 @@
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "home-bg1.jpeg",
       "type": "image/png"
     },
     {
@@ -120,6 +120,26 @@
     },
     {
       "src": "trophy.png",
+      "type": "image/png"
+    },
+    {
+      "src": "splideinit.png",
+      "type": "image/png"
+    },
+    {
+      "src": "splide1.png",
+      "type": "image/png"
+    },
+    {
+      "src": "splide2.png",
+      "type": "image/png"
+    },
+    {
+      "src": "section1-shop.png",
+      "type": "image/png"
+    },
+    {
+      "src": "arrowyellow.png",
       "type": "image/png"
     }
   ],
