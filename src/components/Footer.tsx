@@ -18,24 +18,24 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <img src="face.png" alt="Facebook" />
+              <img src="/face.png" alt="Facebook" />
             </a>
             <a
               href="https://www.instagram.com/"
               target="_blank"
               rel="noreferrer"
             >
-              <img src="insta.png" alt="Instagram" />
+              <img src="/insta.png" alt="Instagram" />
             </a>
             <a href="https://x.com/" target="_blank" rel="noreferrer">
-              <img src="twitter.png" alt="Twitter" />
+              <img src="/twitter.png" alt="Twitter" />
             </a>
             <a
               href="https://www.linkedin.com/"
               target="_blank"
               rel="noreferrer"
             >
-              <img src="linkedin.png" alt="LinkedIn" />
+              <img src="/linkedin.png" alt="LinkedIn" />
             </a>
           </div>
         </div>

@@ -15,6 +15,9 @@ module.exports = {
         '368px':'368px',
         '176px':'176px',
       },
+      height:{
+        '100px':'100px',
+      },
       fontSize: {
         '1xl':'16px',
         '52px':'52px',
@@ -43,6 +46,7 @@ module.exports = {
         grayBackground: '#F4F5F7',
         salmon: '#FAF3EA',
         salmonHome: '#FCF8F3',
+        salmonCheckout: '#F9F1E7',
         salmonNew: '#E97171',
         cyanNew: '#2EC1AC',
         darkBlack: '#333333',

@@ -21,10 +21,10 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-white outline-none font-poppins w-full fixed z-50">
-        <div className="flex items-center justify-between p-4 font-medium">
+      <div className="bg-white fixed top-0 left-0 right-0 z-50 font-poppins">
+        <div className="container mx-auto px-4 md:px-8 py-4 flex items-center justify-between font-medium">
           <div className="flex items-center space-x-0">
-            <img src="logo.png" className="max-h-20 m-0" alt="Logo" />
+            <img src="/logo.png" className="max-h-20 m-0" alt="Logo" />
             <div className="text-4xl font-bold m-0">Furniro</div>
           </div>
           <div className="hidden md:flex items-center justify-center space-x-16">
@@ -43,10 +43,10 @@ const Navbar = () => {
           </div>
           <div className="hidden md:flex items-center space-x-8 mr-12">
             <button onClick={toggleProfilePopup} className="hover:font-bold">
-              <img src="people-icon.svg" alt="Profile" />
+              <img src="/people-icon.svg" alt="Profile" />
             </button>
             <Link to="/cart" className="hover:font-bold">
-              <img src="cart-icon.svg" alt="Cart" />
+              <img src="/cart-icon.svg" alt="Cart" />
             </Link>
           </div>
           <div className="md:hidden flex items-center">
@@ -99,10 +99,10 @@ const Navbar = () => {
                   onClick={toggleProfilePopup}
                   className="hover:font-bold"
                 >
-                  <img src="people-icon.svg" alt="Profile" />
+                  <img src="/people-icon.svg" alt="Profile" />
                 </button>
                 <Link to="/cart" className="hover:font-bold">
-                  <img src="cart-icon.svg" alt="Cart" />
+                  <img src="/cart-icon.svg" alt="Cart" />
                 </Link>
               </div>
             </div>
