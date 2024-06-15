@@ -150,6 +150,11 @@ function Home() {
           </Link>
         </div>
         <CarouselSection />
+        <div className="mt-20 flex flex-col justify-center items-center">
+          <section className="font-semibold text-20px text-center text-grayText5">Share your setup with</section>
+          <section className="font-bold mt-2 text-40px text-center text-darkGrayText">#FuniroFurniture</section>
+          <img src="funirofurniture.png" alt="" className="sm: mb-10" />
+        </div>
         <Footer />
       </div>
     </div>
