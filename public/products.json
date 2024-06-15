@@ -12,7 +12,7 @@
         "name": "Leviosa",
         "price": 2500000,
         "description": "Stylish cafe chair",
-        "imageUrl": "syltherine.png",
+        "imageUrl": "leviosa.png",
         "oldPrice": null
     },
     {
@@ -94,5 +94,421 @@
         "description": "Minimalist flower pot",
         "imageUrl": "potty.png",
         "oldPrice": null
+    },
+    {
+        "id": 13,
+        "name": "Potty",
+        "price": 500000,
+        "description": "Minimalist flower pot",
+        "imageUrl": "potty.png",
+        "oldPrice": null
+    },
+    {
+        "id": 14,
+        "name": "Potty",
+        "price": 500000,
+        "description": "Minimalist flower pot",
+        "imageUrl": "potty.png",
+        "oldPrice": null
+    },
+    {
+        "id": 15,
+        "name": "Potty",
+        "price": 500000,
+        "description": "Minimalist flower pot",
+        "imageUrl": "potty.png",
+        "oldPrice": null
+    },
+    {
+        "id": 16,
+        "name": "Potty",
+        "price": 500000,
+        "description": "Minimalist flower pot",
+        "imageUrl": "potty.png",
+        "oldPrice": null
+    },
+    {
+        "id": 17,
+        "name": "Potty",
+        "price": 500000,
+        "description": "Minimalist flower pot",
+        "imageUrl": "potty.png",
+        "oldPrice": null
+    },
+    {
+        "id": 18,
+        "name": "Potty",
+        "price": 500000,
+        "description": "Minimalist flower pot",
+        "imageUrl": "potty.png",
+        "oldPrice": null
+    },
+    {
+        "id": 19,
+        "name": "Potty",
+        "price": 500000,
+        "description": "Minimalist flower pot",
+        "imageUrl": "potty.png",
+        "oldPrice": null
+    },
+    {
+        "id": 20,
+        "name": "Potty",
+        "price": 500000,
+        "description": "Minimalist flower pot",
+        "imageUrl": "potty.png",
+        "oldPrice": null
+    },
+    {
+        "id": 21,
+        "name": "Potty",
+        "price": 500000,
+        "description": "Minimalist flower pot",
+        "imageUrl": "potty.png",
+        "oldPrice": null
+    },
+    {
+        "id": 22,
+        "name": "Potty",
+        "price": 500000,
+        "description": "Minimalist flower pot",
+        "imageUrl": "potty.png",
+        "oldPrice": null
+    },
+    {
+        "id": 23,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 24,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 25,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 26,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 27,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 28,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 29,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 30,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 31,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 32,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 33,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 34,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 35,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 36,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 37,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 38,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 39,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 40,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 41,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 42,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 43,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 44,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 45,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 46,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 47,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 48,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 49,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 50,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 51,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 52,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 53,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 54,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 55,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 56,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 57,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 58,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 59,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 60,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 61,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 62,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 63,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
+    },
+    {
+        "id": 64,
+        "name": "Sleeping",
+        "price": 2500000,
+        "description": "Comfortable sofa for the family",
+        "imageUrl": "sleeping.png",
+        "oldPrice": 3000000
     }
 ]

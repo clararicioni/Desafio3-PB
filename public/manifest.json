@@ -141,6 +141,22 @@
     {
       "src": "arrowyellow.png",
       "type": "image/png"
+    },
+    {
+      "src": "filtercolumn.png",
+      "type": "image/png"
+    },
+    {
+      "src": "filtericon.png",
+      "type": "image/png"
+    },
+    {
+      "src": "filter2.png",
+      "type": "image/png"
+    },
+    {
+      "src": "pipe.png",
+      "type": "image/png"
     }
   ],
   "start_url": ".",

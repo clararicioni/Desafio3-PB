@@ -35,17 +35,17 @@ const ProductCard: React.FC<CardProps> = ({
 
   return (
     <div
-      className="max-w-sm rounded overflow-hidden bg-grayBackground relative group cursor-pointer"
+      className="max-w-sm overflow-hidden bg-grayBackground relative group cursor-pointer"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleCardClick}
     >
       <img className="h-80 w-full object-cover" src={imageUrl} alt={name} />
       <div className="px-4 py-4">
-        <div className="font-bold text-xl mb-2 text-darkGrayText">{name}</div>
+        <div className="font-bold text-2xl mb-2 text-darkGrayText">{name}</div>
         <section className="text-grayText3 font-medium">{description}</section>
         <div className="flex items-baseline gap-2 mt-2">
-          <section className="text-gray-800 text-lg font-semibold">
+          <section className="text-darkGrayText text-lg font-semibold">
             Rp {price}
           </section>
           {oldPrice != null && (
