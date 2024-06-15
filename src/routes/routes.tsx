@@ -15,6 +15,7 @@ function MainRoutes(){
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/singleproduct" element={<SingleProduct />} />
+        <Route path="/singleproduct/:productName" element={<SingleProduct />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/checkout" element={<ProtectedRoute element={<Checkout />} />} />
         <Route path="/cart" element={<Cart />} />

@@ -28,15 +28,9 @@ const ProductCard: React.FC<CardProps> = ({
     setHovered(false);
   };
 
-  const handleCardClick = (e: React.MouseEvent) => {
-    if (
-      (e.target as HTMLElement).closest(".prevent-default") ||
-      (e.target as HTMLElement).tagName === "BUTTON"
-    ) {
-      e.stopPropagation();
-      return;
-    }
-    window.open("/singleproduct", "_blank");
+  const handleCardClick = () => {
+    const productNameParam = encodeURIComponent(name.charAt(0).toUpperCase() + name.slice(1));
+    window.location.href = `/singleproduct/${productNameParam}`;
   };
 
   return (
