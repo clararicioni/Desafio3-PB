@@ -9,8 +9,11 @@ module.exports = {
         '100px':'100px',
       },
       maxWidth:{
-        '400px':'400px',
+        '500px':'500px',
         '546px':'546px',
+        '422px':'422px',
+        '368px':'368px',
+        '176px':'176px',
       },
       fontSize: {
         '1xl':'16px',
@@ -19,6 +22,7 @@ module.exports = {
         '40px':'40px',
         '20px':'20px',
         '25px':'25px',
+        '28px':'28px',
       },
       spacing: {
         '50px': '50px',
@@ -32,9 +36,10 @@ module.exports = {
         yellowBackground: '#FFF3E3',
         darkGrayText: '#3A3A3A',
         darkGrayText2: '#666666',
+        grayText: '#9F9F9F',
         grayText3: '#898989',
         grayText4: '#B0B0B0',
-        grayText: '#9F9F9F',
+        grayText5: '#616161',
         grayBackground: '#F4F5F7',
         salmon: '#FAF3EA',
         salmonHome: '#FCF8F3',
