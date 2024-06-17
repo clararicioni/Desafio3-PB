@@ -157,6 +157,54 @@
     {
       "src": "pipe.png",
       "type": "image/png"
+    },
+    {
+      "src": "furniture1.png",
+      "type": "image/png"
+    },
+    {
+      "src": "furniture2.png",
+      "type": "image/png"
+    },
+    {
+      "src": "furniture3.png",
+      "type": "image/png"
+    },
+    {
+      "src": "furniture4.png",
+      "type": "image/png"
+    },
+    {
+      "src": "furniture5.png",
+      "type": "image/png"
+    },
+    {
+      "src": "furniture6.png",
+      "type": "image/png"
+    },
+    {
+      "src": "furniture7.png",
+      "type": "image/png"
+    },
+    {
+      "src": "furniture8.png",
+      "type": "image/png"
+    },
+    {
+      "src": "furniture9.png",
+      "type": "image/png"
+    },
+    {
+      "src": "furniture10.png",
+      "type": "image/png"
+    },
+    {
+      "src": "furniture11.png",
+      "type": "image/png"
+    },
+    {
+      "src": "furniture12.png",
+      "type": "image/png"
     }
   ],
   "start_url": ".",

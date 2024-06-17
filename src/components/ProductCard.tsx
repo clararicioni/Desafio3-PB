@@ -8,6 +8,8 @@ interface CardProps {
   description: string;
   imageUrl: string;
   oldPrice?: number | null;
+  discount?: string | null;
+  new?: boolean;
 }
 
 const ProductCard: React.FC<CardProps> = ({
@@ -17,6 +19,8 @@ const ProductCard: React.FC<CardProps> = ({
   description,
   imageUrl,
   oldPrice,
+  discount,
+  new: isNew,
 }) => {
   const [hovered, setHovered] = useState(false);
 
@@ -29,7 +33,9 @@ const ProductCard: React.FC<CardProps> = ({
   };
 
   const handleCardClick = () => {
-    const productNameParam = encodeURIComponent(name.charAt(0).toUpperCase() + name.slice(1));
+    const productNameParam = encodeURIComponent(
+      name.charAt(0).toUpperCase() + name.slice(1)
+    );
     window.location.href = `/singleproduct/${productNameParam}`;
   };
 
@@ -48,6 +54,16 @@ const ProductCard: React.FC<CardProps> = ({
           <section className="text-darkGrayText text-lg font-semibold">
             Rp {price}
           </section>
+          {discount && (
+            <div className="absolute top-4 right-4 bg-discountBallColor text-white rounded-full w-12 h-12 flex items-center justify-center text-sm">
+              {discount}
+            </div>
+          )}
+          {isNew && (
+            <div className="absolute top-4 right-4 bg-newBallColor text-white rounded-full w-12 h-12 flex items-center justify-center text-sm">
+              New
+            </div>
+          )}
           {oldPrice != null && (
             <section className="text-grayText4 text-base line-through ml-2 font-normal">
               Rp {oldPrice}
