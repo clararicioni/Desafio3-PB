@@ -125,6 +125,8 @@ const Home = () => {
               description={product.description}
               imageUrl={product.imageUrl}
               oldPrice={product.oldPrice}
+              discount={product.discount}
+              new={product.new}
             />
           ))}
         </div>

@@ -54,6 +54,8 @@ module.exports = {
         cyanNew: '#2EC1AC',
         darkBlack: '#333333',
         darkBlack2: '#242424',
+        discountBallColor: '#E97171',
+        newBallColor: '#2EC1AC',
       },
     },
   },

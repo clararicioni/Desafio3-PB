@@ -22,29 +22,35 @@ const Shop: React.FC = () => {
     const getProducts = async () => {
       setLoading(true);
       try {
-        const data: ApiData = await fetchProducts(currentPage, productsPerPage);
-        let sortedProducts = [...data.products];
+        const data: ApiData = await fetchProducts(1, 100000);
+
+        let allProducts = data.products;
 
         if (sortBy === "az") {
-          sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+          allProducts.sort((a, b) => a.name.localeCompare(b.name));
         } else if (sortBy === "za") {
-          sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+          allProducts.sort((a, b) => b.name.localeCompare(a.name));
         } else if (sortBy === "lowhigh") {
-          sortedProducts.sort((a, b) => a.price - b.price);
+          allProducts.sort((a, b) => a.price - b.price);
         } else if (sortBy === "highlow") {
-          sortedProducts.sort((a, b) => b.price - a.price);
+          allProducts.sort((a, b) => b.price - a.price);
         }
 
         if (showOnlyDiscounted) {
-          sortedProducts = sortedProducts.filter(
+          allProducts = allProducts.filter(
             (product) =>
               product.oldPrice !== undefined && product.oldPrice !== null
           );
         }
 
-        setProducts(sortedProducts);
-        setTotalResults(data.total);
-        setTotalPages(Math.ceil(data.total / productsPerPage));
+        const filteredProducts = allProducts.slice(
+          (currentPage - 1) * productsPerPage,
+          currentPage * productsPerPage
+        );
+
+        setProducts(filteredProducts);
+        setTotalResults(allProducts.length);
+        setTotalPages(Math.ceil(allProducts.length / productsPerPage));
       } catch (error) {
         setError((error as Error).message || "Erro desconhecido");
       } finally {
@@ -86,7 +92,7 @@ const Shop: React.FC = () => {
       {error && <div>Error: {error}</div>}
       {!loading && !error && (
         <>
-          <div className="flex flex-wrap justify-center mt-8 gap-8">
+          <div className="flex flex-wrap justify-center mt-8 gap-8 font-poppins">
             {products.map((product) => (
               <ProductCard
                 key={product.id}
@@ -95,11 +101,9 @@ const Shop: React.FC = () => {
                 price={product.price}
                 description={product.description}
                 imageUrl={product.imageUrl}
-                oldPrice={
-                  typeof product.oldPrice === "number"
-                    ? product.oldPrice
-                    : undefined
-                }
+                oldPrice={product.oldPrice}
+                discount={product.discount}
+                new={product.new}
               />
             ))}
           </div>
