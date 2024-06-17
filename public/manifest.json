@@ -213,6 +213,18 @@
     {
       "src": "furniture12.png",
       "type": "image/png"
+    },
+    {
+      "src": "address.png",
+      "type": "image/png"
+    },
+    {
+      "src": "phone.png",
+      "type": "image/png"
+    },
+    {
+      "src": "time.png",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
