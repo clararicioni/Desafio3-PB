@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      borderWidth:{
+        '1px':'1px',
+      },
       borderRadius:{
         '10px':'10px',
       },
@@ -17,10 +20,12 @@ module.exports = {
         '422px':'422px',
         '372px':'372px',
         '300px':'300px',
-        '176px':'176px',
+        '176px':'176px',  
+        '644px':'644px',
       },
       maxHeight:{
         '400px':'400px',
+        '75px':'75px',
       },
       height:{
         '100px':'100px',

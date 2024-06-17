@@ -2,7 +2,7 @@ import React from 'react';
 
 const Quality = () => {
   return (
-    <div className='bg-salmon w-full font-poppins p-4 sm:p-6 md:p-10 lg:p-100px max-w-full'>
+    <div className='bg-salmon w-full font-poppins p-4 sm:p-6 md:p-10 lg:p-100px max-w-full mb-10'>
       <div className='flex flex-col sm:flex-row items-center justify-center gap-20'>
         
         <div className='flex items-center sm:mb-0 sm:mr-6'> 
