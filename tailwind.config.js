@@ -15,8 +15,12 @@ module.exports = {
         '500px':'500px',
         '546px':'546px',
         '422px':'422px',
-        '368px':'368px',
+        '372px':'372px',
+        '300px':'300px',
         '176px':'176px',
+      },
+      maxHeight:{
+        '400px':'400px',
       },
       height:{
         '100px':'100px',
