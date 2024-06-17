@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 interface CardProps {
   id: number;
   name: string;
-  price: string | null;
+  price: number;
   description: string;
   imageUrl: string;
-  oldPrice?: string | null;
+  oldPrice?: number | null;
 }
 
 const ProductCard: React.FC<CardProps> = ({

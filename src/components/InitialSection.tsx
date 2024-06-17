@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 type InitialSectionProps = {
@@ -6,6 +6,10 @@ type InitialSectionProps = {
 };
 
 const InitialSection: React.FC<InitialSectionProps> = ({ pageName }) => {
+    useEffect(() => {
+      window.scrollTo(0, 0); 
+    }, []);
+
   return (
     <div className="relative font-poppins pt-28">
       <div className="w-full bg-cover bg-center h-96 sm:h-80 md:h-96 lg:h-120"

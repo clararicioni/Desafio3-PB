@@ -1,78 +1,115 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from '../components/NavBar';
-import Footer from '../components/Footer';
-import Quality from '../components/Quality';
-import InitialSection from '../components/InitialSection';
-import Filter from '../components/Filter';
-import ProductCard from '../components/ProductCard';
-import ProductPagination from '../components/ProductPagination';
-import { fetchProducts } from '../services/api';
+import React, { useState, useEffect } from "react";
+import Navbar from "../components/NavBar";
+import Footer from "../components/Footer";
+import InitialSection from "../components/InitialSection";
+import Filter from "../components/Filter";
+import ProductCard from "../components/ProductCard";
+import ProductPagination from "../components/ProductPagination";
+import { fetchProducts, ApiData, Product } from "../services/api";
 
-const Shop = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [products, setProducts] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+const Shop: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const productsPerPage = 16;
-  const [totalPages, setTotalPages] = useState(1);
+  const [totalPages, setTotalPages] = useState<number>(1);
+  const [productsPerPage, setProductsPerPage] = useState<number>(16);
+  const [totalResults, setTotalResults] = useState<number>(0);
+  const [sortBy, setSortBy] = useState<string>("default");
+  const [showOnlyDiscounted, setShowOnlyDiscounted] = useState<boolean>(false);
 
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
       try {
-        const data = await fetchProducts(currentPage, productsPerPage);
-        setProducts(data.products);
-        setTotalPages(Math.ceil(data.total / productsPerPage));
-      } catch (error: unknown) {
-        if (error instanceof Error) {
-          setError(error.message);
-        } else {
-          setError('Erro desconhecido');
+        const data: ApiData = await fetchProducts(currentPage, productsPerPage);
+        let sortedProducts = [...data.products];
+
+        if (sortBy === "az") {
+          sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (sortBy === "za") {
+          sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+        } else if (sortBy === "lowhigh") {
+          sortedProducts.sort((a, b) => a.price - b.price);
+        } else if (sortBy === "highlow") {
+          sortedProducts.sort((a, b) => b.price - a.price);
         }
+
+        if (showOnlyDiscounted) {
+          sortedProducts = sortedProducts.filter(
+            (product) =>
+              product.oldPrice !== undefined && product.oldPrice !== null
+          );
+        }
+
+        setProducts(sortedProducts);
+        setTotalResults(data.total);
+        setTotalPages(Math.ceil(data.total / productsPerPage));
+      } catch (error) {
+        setError((error as Error).message || "Erro desconhecido");
       } finally {
         setLoading(false);
       }
     };
 
     getProducts();
-  }, [currentPage]);
+  }, [currentPage, productsPerPage, sortBy, showOnlyDiscounted]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
 
-  if (loading) {
-    return <section className='text-2xl mt-5 text-yellowPrimary font-bold flex justify-center'>Loading...</section>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  const handleShowChange = (value: number) => {
+    setProductsPerPage(value);
+    setCurrentPage(1);
+  };
 
   return (
     <div>
       <Navbar />
-      <InitialSection pageName='Shop' />
-      <Filter />
-      <div className='flex flex-wrap justify-center mt-8 gap-8'>
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            id={product.id}
-            name={product.name}
-            price={product.price}
-            description={product.description}
-            imageUrl={product.imageUrl}
-            oldPrice={product.oldPrice}
-          />
-        ))}
-      </div>
-      <ProductPagination
+      <InitialSection pageName="Shop" />
+      <Filter
+        productsPerPage={productsPerPage}
+        totalResults={totalResults}
         currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
+        onPageChange={handleShowChange}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        showOnlyDiscounted={showOnlyDiscounted}
+        setShowOnlyDiscounted={setShowOnlyDiscounted}
       />
-      <Quality />
+      {loading && (
+        <section className="text-2xl mt-5 text-yellowPrimary font-bold flex justify-center">
+          Loading...
+        </section>
+      )}
+      {error && <div>Error: {error}</div>}
+      {!loading && !error && (
+        <>
+          <div className="flex flex-wrap justify-center mt-8 gap-8">
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                price={product.price}
+                description={product.description}
+                imageUrl={product.imageUrl}
+                oldPrice={
+                  typeof product.oldPrice === "number"
+                    ? product.oldPrice
+                    : undefined
+                }
+              />
+            ))}
+          </div>
+          <ProductPagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        </>
+      )}
       <Footer />
     </div>
   );

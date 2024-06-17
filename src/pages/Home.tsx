@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import ProductCard from '../components/ProductCard';
-import ProductPagination from '../components/ProductPagination';
-import { fetchProducts } from '../services/api';
-import CarouselSection from '../components/CarouselSection';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import ProductCard from "../components/ProductCard";
+import { fetchProducts } from "../services/api";
+import CarouselSection from "../components/CarouselSection";
 
 const Home = () => {
   const [currentPage] = useState(1);
@@ -24,7 +23,7 @@ const Home = () => {
         if (error instanceof Error) {
           setError(error.message);
         } else {
-          setError('Error');
+          setError("Error");
         }
       } finally {
         setLoading(false);
@@ -35,7 +34,11 @@ const Home = () => {
   }, [currentPage]);
 
   if (loading) {
-    return <section className='text-2xl mt-5 text-yellowPrimary font-bold flex justify-center'>Loading...</section>;
+    return (
+      <section className="text-2xl mt-5 text-yellowPrimary font-bold flex justify-center">
+        Loading...
+      </section>
+    );
   }
 
   if (error) {
@@ -50,9 +53,9 @@ const Home = () => {
           className="flex items-center justify-center min-h-screen relative"
           style={{
             backgroundImage: `url('home-bg1.jpeg')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            position: 'relative',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            position: "relative",
           }}
         >
           <div className="w-full h-full flex items-center justify-end mr-40 mt-24">
@@ -70,7 +73,7 @@ const Home = () => {
               <Link to="/shop" target="_blank">
                 <button
                   className="font-bold text-1xl text-white p-5 bg-yellowPrimary hover:opacity-75 mt-10"
-                  style={{ width: '222px', height: '74px' }}
+                  style={{ width: "222px", height: "74px" }}
                 >
                   BUY NOW
                 </button>
@@ -130,7 +133,7 @@ const Home = () => {
           <Link to="/shop" target="_blank">
             <button
               className="flex justify-center items-center font-bold text-1xl text-yellowPrimary p-5 outline-1 outline hover:opacity-75 mt-10"
-              style={{ width: '245px', height: '48px' }}
+              style={{ width: "245px", height: "48px" }}
             >
               Show More
             </button>
@@ -138,8 +141,12 @@ const Home = () => {
         </div>
         <CarouselSection />
         <div className="mt-20 flex flex-col justify-center items-center">
-          <section className="font-semibold text-20px text-center text-grayText5">Share your setup with</section>
-          <section className="font-bold mt-2 text-40px text-center text-darkGrayText">#FuniroFurniture</section>
+          <section className="font-semibold text-20px text-center text-grayText5">
+            Share your setup with
+          </section>
+          <section className="font-bold mt-2 text-40px text-center text-darkGrayText">
+            #FuniroFurniture
+          </section>
           <img src="funirofurniture.png" alt="" className="sm: mb-10" />
         </div>
         <Footer />
