@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../services/firebaseConfig";
+import CartSidebar from "./CartSidebar";
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isProfilePopupOpen, setProfilePopupOpen] = useState(false);
+  const [isCartOpen, setCartOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -12,6 +14,13 @@ const Navbar = () => {
 
   const toggleProfilePopup = () => {
     setProfilePopupOpen(!isProfilePopupOpen);
+  };
+
+  const toggleCart = () => {
+    setCartOpen(!isCartOpen);
+  };
+  const closeCart = () => {
+    setCartOpen(false);
   };
 
   const handleLogout = async () => {
@@ -45,11 +54,11 @@ const Navbar = () => {
             <button onClick={toggleProfilePopup} className="hover:font-bold">
               <img src="/people-icon.svg" alt="Profile" />
             </button>
-            <Link to="/cart" className="hover:font-bold">
+            <button onClick={toggleCart} className="hover:font-bold">
               <img src="/cart-icon.svg" alt="Cart" />
-            </Link>
+            </button>
           </div>
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-5">
             <button
               onClick={toggleMenu}
               className="text-gray-600 hover:text-gray-800 focus:outline-none"
@@ -77,6 +86,9 @@ const Navbar = () => {
                 )}
               </svg>
             </button>
+            <button onClick={toggleCart} className="hover:font-bold">
+              <img src="/cart-icon.svg" alt="Cart" />
+            </button>
           </div>
         </div>
         {isMenuOpen && (
@@ -101,9 +113,6 @@ const Navbar = () => {
                 >
                   <img src="/people-icon.svg" alt="Profile" />
                 </button>
-                <Link to="/cart" className="hover:font-bold">
-                  <img src="/cart-icon.svg" alt="Cart" />
-                </Link>
               </div>
             </div>
           </div>
@@ -127,6 +136,7 @@ const Navbar = () => {
           </button>
         </div>
       )}
+      {isCartOpen && <CartSidebar isOpen={isCartOpen} onClose={closeCart} />}
     </>
   );
 };
