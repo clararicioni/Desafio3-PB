@@ -5,111 +5,133 @@ import Quality from "../components/Quality";
 import InitialSection from "../components/InitialSection";
 import { useForm } from "react-hook-form";
 
-const Contact = () => {
-  const { handleSubmit, register } = useForm();
+type ContactInfoProps = {
+  icon: string;
+  title: string;
+  info: string;
+};
+
+const Contact: React.FC = () => {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
+
+  const validateEmail = (value: string) => {
+    if (!value.includes(".com")) {
+      return "Email must contain '.com'";
+    }
+    return true;
+  };
 
   return (
-    <div>
+    <div className="font-poppins select-none">
       <Navbar />
       <InitialSection pageName="Contact" />
-      <div className="font-poppins select-none">
-        <div className="flex flex-col justify-center items-center text-center mt-20">
-          <section className="text-black text-4xl font-semibold mb-3">
-            Get In Touch With Us
-          </section>
-          <section className="text-grayText text-1xl max-w-644px mb-36">
+      <div className="container mx-auto px-4 lg:px-0">
+        <div className="text-center mt-20">
+          <h2 className="text-4xl font-semibold mb-3">Get In Touch With Us</h2>
+          <p className="text-grayText text-lg max-w-lg mx-auto mb-10">
             For More Information About Our Product & Services. Please Feel Free
             To Drop Us An Email. Our Staff Always Be There To Help You Out. Do
             Not Hesitate!
-          </section>
+          </p>
         </div>
-        <div className="flex lg:flex-row justify-center md:flex-col sm:flex-col">
-          <div className="flex flex-col mr-48">
-            <div className="flex flex-row mb-10">
-              <img
-                src="address.png"
-                alt="address icon"
-                className="max-w-5 max-h-5"
-              />
-              <div className="flex flex-col ml-5">
-                <section className="text-2xl font-medium">Address</section>
-                <section className="max-w-48">
-                  236 5th SE Avenue, New York NY10000, United States
-                </section>
-              </div>
-            </div>
-            <div className="flex flex-row mb-10">
-              <img
-                src="phone.png"
-                alt="address icon"
-                className="max-w-5 max-h-5"
-              />
-              <div className="flex flex-col ml-5">
-                <section className="text-2xl font-medium">Phone</section>
-                <section className="max-w-48">
-                  Mobile: +(84) 546-6789 Hotline: +(84) 456-6789
-                </section>
-              </div>
-            </div>
-            <div className="flex flex-row">
-              <img
-                src="time.png"
-                alt="address icon"
-                className="max-w-5 max-h-5"
-              />
-              <div className="flex flex-col ml-5">
-                <section className="text-2xl font-medium">Working Time</section>
-                <section className="max-w-48 sm:mb-10 md:mb-10">
-                  Monday-Friday: 9:00 - 22:00 Saturday-Sunday: 9:00 - 21:00
-                </section>
-              </div>
-            </div>
+        <div className="flex flex-col lg:flex-row justify-center items-start lg:space-x-20">
+          <div className="mb-10 lg:mb-0">
+            <ContactInfo
+              icon="address.png"
+              title="Address"
+              info="236 5th SE Avenue, New York NY10000, United States"
+            />
+            <ContactInfo
+              icon="phone.png"
+              title="Phone"
+              info="Mobile: +(84) 546-6789 Hotline: +(84) 456-6789"
+            />
+            <ContactInfo
+              icon="time.png"
+              title="Working Time"
+              info="Monday-Friday: 9:00 - 22:00 Saturday-Sunday: 9:00 - 21:00"
+            />
           </div>
-          <form onSubmit={handleSubmit((data) => console.log(data))}>
+          <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg w-full">
             <div className="flex flex-col">
-              <label className="font-medium text-1xl mb-5">Your name</label>
+              <label className="font-medium text-lg mb-2">Your name</label>
               <input
                 type="text"
-                {...register('name')}
-                placeholder="Abc"
-                className="border-grayText outline-none rounded-md h-12 p-4 w-96 mb-10"
-                style={{borderWidth:"1px"}}
+                {...register('name', { required: true })}
+                placeholder="Enter your name"
+                className={`border-grayText outline-none rounded-md border-1px p-2 h-12 px-4 mb-4 ${
+                  errors.name ? 'border-red-500' : ''
+                }`}
               />
-              <label className="font-medium text-1xl mb-5">Email address</label>
+              {errors.name && errors.name.type === 'required' && (
+                <span className="text-red-500 text-sm mb-4">Name is required</span>
+              )}
+
+              <label className="font-medium text-lg mb-2">Email address</label>
+              <input
+                type="email"
+                {...register('email', { required: true, validate: validateEmail })}
+                placeholder="Enter your email"
+                className={`border-grayText outline-none rounded-md border-1px p-2 h-12 px-4 mb-4 ${
+                  errors.email ? 'border-red-500' : ''
+                }`}
+              />
+              {errors.email && typeof errors.email === 'string' && (
+                <span className="text-red-500 text-sm mb-4">{errors.email}</span>
+              )}
+
+              <label className="font-medium text-lg mb-2">Subject</label>
               <input
                 type="text"
-                placeholder="Abc@def.com"
-                className="border-grayText outline-none rounded-md h-12 p-4 w-96 mb-10"
-                style={{borderWidth:"1px"}}
+                {...register('subject')}
+                placeholder="Enter subject (optional)"
+                className="border-grayText outline-none rounded-md border-1px p-2 h-12 px-4 mb-4"
               />
-              <label className="font-medium text-1xl mb-5">Subject</label>
-              <input
-                type="text"
-                placeholder="This is an optional"
-                className="border-grayText outline-none rounded-md h-12 p-4 w-96 mb-10"
-                style={{borderWidth:"1px"}}
-              />
-              <label className="font-medium text-1xl mb-5">Message</label>
+
+              <label className="font-medium text-lg mb-2">Message</label>
               <textarea
-                placeholder="Hi! id like to ask about"
-                className="resize-none border-grayText outline-none rounded-md h-32 p-4 w-96 mb-10"
-                style={{borderWidth:"1px"}}
+                {...register('message', { required: true })}
+                placeholder="Enter your message"
+                className={`resize-none border-grayText outline-none rounded-md border-1px p-2 h-32 px-4 mb-4 ${
+                  errors.message ? 'border-red-500' : ''
+                }`}
               />
-              <button type='submit'
-            className="p-6 max-w-60 max-h-10 bg-yellowPrimary rounded-md text-1xl font-normal 
-            text-center items-center justify-center flex text-white hover:opacity-75 mb-20"
-            >
-              Submit
-            </button>
+              {errors.message && (
+                <span className="text-red-500 text-sm mb-4">Message is required</span>
+              )}
+
+              <button
+                type="submit"
+                className="py-3 max-w-60 bg-yellowPrimary rounded-md mb-5 text-lg text-white hover:opacity-75"
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>
-          
       </div>
       <Quality />
       <Footer />
     </div>
   );
 };
+
+const ContactInfo: React.FC<ContactInfoProps> = ({ icon, title, info }) => (
+  <div className="flex items-center mb-8">
+    <img src={icon} alt={`${title} icon`} className="max-w-7 max-h-7 mr-3" />
+    <div>
+      <h3 className="text-lg font-medium">{title}</h3>
+      <p className="max-w-xs">{info}</p>
+    </div>
+  </div>
+);
 
 export default Contact;
