@@ -27,6 +27,7 @@ module.exports = {
       maxHeight:{
         '400px':'400px',
         '75px':'75px',
+        '600px':'600px',
       },
       height:{
         '100px':'100px',
@@ -39,6 +40,7 @@ module.exports = {
         '20px':'20px',
         '25px':'25px',
         '28px':'28px',
+        '12px':'12px',
       },
       spacing: {
         '50px': '50px',

@@ -225,6 +225,54 @@
     {
       "src": "time.png",
       "type": "image/png"
+    },
+    {
+      "src": "fbsingleproduct.png",
+      "type": "image/png"
+    },
+    {
+      "src": "linkedinsingleproduct.png",
+      "type": "image/png"
+    },
+    {
+      "src": "twittersingleproduct.png",
+      "type": "image/png"
+    },
+    {
+      "src": "trash.png",
+      "type": "image/png"
+    },
+    {
+      "src": "sidecard1.png",
+      "type": "image/png"
+    },
+    {
+      "src": "sidecard2.png",
+      "type": "image/png"
+    },
+    {
+      "src": "sidecard3.png",
+      "type": "image/png"
+    },
+    {
+      "src": "sidecard4.png",
+      "type": "image/png"
+    },
+    {
+      "src": "singleproductsofa.png",
+      "type": "image/png"
+    },
+    {
+      "src": "singleproductsofa1.png",
+      "type": "image/png"
+    },
+    {
+      "src": "trash.png",
+      "type": "image/png"
+    },
+    {
+      "src": "deleteproductcart.png",
+      "type": "image/png"
     }
   ],
   "start_url": ".",

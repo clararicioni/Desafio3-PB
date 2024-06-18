@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addProductToCart } from '../redux/cart/actions';
 
 interface CardProps {
   id: number;
@@ -22,6 +23,24 @@ const ProductCard: React.FC<CardProps> = ({
   discount,
   new: isNew,
 }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    dispatch(
+      addProductToCart({
+        id,
+        name,
+        price,
+        description,
+        imageUrl,
+        oldPrice,
+        discount,
+        new: isNew,
+      })
+    );
+  };
+
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -32,19 +51,16 @@ const ProductCard: React.FC<CardProps> = ({
     setHovered(false);
   };
 
-  const handleCardClick = () => {
-    const productNameParam = encodeURIComponent(
-      name.charAt(0).toUpperCase() + name.slice(1)
-    );
-    window.location.href = `/singleproduct/${productNameParam}`;
-  };
+  const productNameParam = encodeURIComponent(
+    name.charAt(0).toUpperCase() + name.slice(1)
+  );
 
   return (
     <div
       className="max-w-sm overflow-hidden bg-grayBackground relative group cursor-pointer"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={handleCardClick}
+      onClick={() => window.location.href = `/singleproduct/${productNameParam}`}
     >
       <img className="h-80 w-full object-cover" src={imageUrl} alt={name} />
       <div className="px-4 py-4">
@@ -81,15 +97,13 @@ const ProductCard: React.FC<CardProps> = ({
           hovered ? "opacity-100" : "opacity-0"
         }`}
       >
-        <Link to="/cart" target="_blank" className="prevent-default">
-          <button
-            className="bg-white text-yellowPrimary font-semibold hover:opacity-75 z-20"
-            style={{ width: "202px", height: "48px" }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            Add to cart
-          </button>
-        </Link>
+        <button
+          className="bg-white text-yellowPrimary font-semibold hover:opacity-75 z-20"
+          style={{ width: "202px", height: "48px" }}
+          onClick={handleAddToCart}
+        >
+          Add to cart
+        </button>
         <div className="flex space-x-4 z-20">
           <button className="flex items-center text-white space-x-2 hover:opacity-75 prevent-default">
             <img src="share.png" alt="Share" className="h-5 w-5" />
