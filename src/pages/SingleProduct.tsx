@@ -1,12 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Breadcrumbs from "../components/Breadcrumbs";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { fetchProducts } from "../services/api";
+import ProductCard from "../components/ProductCard";
 
 const SingleProduct = () => {
   let { productName } = useParams<{ productName?: string }>();
   productName = productName ?? "Produto Não Encontrado";
+  const [currentPage] = useState(1);
+  const [products, setProducts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const productsPerPage = 4;
+
+  useEffect(() => {
+    const getProducts = async () => {
+      setLoading(true);
+      try {
+        const data = await fetchProducts(currentPage, productsPerPage);
+        setProducts(data.products);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          setError(error.message);
+        } else {
+          setError("Error");
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getProducts();
+  }, [currentPage]);
+
+  if (loading) {
+    return (
+      <section className="text-2xl mt-5 text-yellowPrimary font-bold flex justify-center">
+        Loading...
+      </section>
+    );
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div className="font-poppins select-none">
@@ -49,7 +88,40 @@ const SingleProduct = () => {
           className="w-48 md:w-auto max-w-full"
         />
       </div>
+      <section className="mt-20 text-4xl text-black font-medium leading-10 flex justify-center">
+        Related Products
+      </section>
+      <div className="flex flex-wrap justify-center mt-8 gap-8">
+        {products.map((product) => {
+          const formattedImageUrl = product.imageUrl.startsWith("/")
+            ? product.imageUrl
+            : `/${product.imageUrl}`;
 
+          return (
+            <ProductCard
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              price={product.price}
+              description={product.description}
+              imageUrl={formattedImageUrl}
+              oldPrice={product.oldPrice}
+              discount={product.discount}
+              new={product.new}
+            />
+          );
+        })}
+      </div>
+      <div className="flex justify-center pb-20 border-b border-gray-300">
+        <Link to="/shop" target="_blank">
+          <button
+            className="flex justify-center items-center font-bold text-1xl text-yellowPrimary p-5 outline-1 outline hover:opacity-75 mt-10"
+            style={{ width: "245px", height: "48px" }}
+          >
+            Show More
+          </button>
+        </Link>
+      </div>
       <Footer />
     </div>
   );

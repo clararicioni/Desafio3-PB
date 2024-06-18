@@ -95,7 +95,7 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
                     </div>
                     <button onClick={() => handleRemoveProduct(product.id)}>
                       <img
-                        src="deleteproductcart.png"
+                        src="/deleteproductcart.png"
                         alt="delete product from cart"
                       />
                     </button>
@@ -112,12 +112,12 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
               </span>
             </div>
             <div className="flex justify-between gap-3">
-              <Link to="/cart" target="_blank" className="w-full">
+              <Link to="/cart" className="w-full">
                 <button className="w-full py-2 border-2 border-black text-12px text-black font-normal rounded-full hover:text-white hover:bg-black">
                   Cart
                 </button>
               </Link>
-              <Link to="/checkout" target="_blank" className="w-full">
+              <Link to="/checkout" className="w-full">
                 <button className="w-full py-2 border-2 border-black text-12px text-black font-normal rounded-full hover:text-white hover:bg-black">
                   Checkout
                 </button>

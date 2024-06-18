@@ -106,15 +106,15 @@ const ProductCard: React.FC<CardProps> = ({
         </button>
         <div className="flex space-x-4 z-20">
           <button className="flex items-center text-white space-x-2 hover:opacity-75 prevent-default">
-            <img src="share.png" alt="Share" className="h-5 w-5" />
+            <img src="/share.png" alt="Share" className="h-5 w-5" />
             <span>Share</span>
           </button>
           <button className="flex items-center text-white space-x-2 hover:opacity-75 prevent-default">
-            <img src="compare.png" alt="Compare" className="h-5 w-5" />
+            <img src="/compare.png" alt="Compare" className="h-5 w-5" />
             <span>Compare</span>
           </button>
           <button className="flex items-center text-white space-x-2 hover:opacity-75 prevent-default">
-            <img src="like.png" alt="Like" className="h-5 w-5" />
+            <img src="/like.png" alt="Like" className="h-5 w-5" />
             <span>Like</span>
           </button>
         </div>
