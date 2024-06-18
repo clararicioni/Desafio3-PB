@@ -22,6 +22,7 @@ module.exports = {
         '300px':'300px',
         '176px':'176px',  
         '644px':'644px',
+        '453px':'453px',
       },
       maxHeight:{
         '400px':'400px',
