@@ -250,10 +250,6 @@ const SingleProduct: React.FC = () => {
       </section>
       <div className="flex flex-wrap justify-center mt-8 gap-8">
         {products.map((product) => {
-          const formattedImageUrl = product.imageUrl.startsWith("/")
-            ? product.imageUrl
-            : `/${product.imageUrl}`;
-
           return (
             <ProductCard
               key={product.id}
@@ -261,7 +257,7 @@ const SingleProduct: React.FC = () => {
               name={product.name}
               price={product.price}
               description={product.description}
-              imageUrl={formattedImageUrl}
+              imageUrl={product.imageUrl}
               oldPrice={product.oldPrice}
               discount={product.discount}
               new={product.new}
