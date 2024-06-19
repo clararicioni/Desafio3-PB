@@ -273,6 +273,14 @@
     {
       "src": "deleteproductcart.png",
       "type": "image/png"
+    },
+    {
+      "src": "star.png",
+      "type": "image/png"
+    },
+    {
+      "src": "disabledstar.png",
+      "type": "image/png"
     }
   ],
   "start_url": ".",

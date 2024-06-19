@@ -13,11 +13,13 @@ export interface Product {
 
 export interface CartState {
   products: Product[];
+  selectedProduct: Product | null;
   subtotal: number;
 }
 
 const initialState: CartState = {
   products: [],
+  selectedProduct: null,
   subtotal: 0,
 };
 
@@ -40,6 +42,11 @@ const cartReducer = (state = initialState, action: { type: any; payload: any }) 
         };
       }
       return state;
+    case CartActionTypes.SET_SELECTED_PRODUCT:
+      return {
+        ...state,
+        selectedProduct: action.payload,
+      };
     default:
       return state;
   }

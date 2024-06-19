@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 type BreadcrumbsProps = {
   productName: string;
 }
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = () => {
-  const { productName } = useParams<{ productName: string }>();
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({productName}) => {
 
   return (
     <div className="bg-salmonCheckout w-full h-100px flex items-center font-poppins gap-3 mt-28">
