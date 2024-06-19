@@ -14,7 +14,7 @@ export interface Product {
   new: boolean
 }
 export const fetchProducts = async (page: number, productsPerPage: number): Promise<ApiData> => {
-  const response = await fetch(`https://run.mocky.io/v3/764ea3d8-e28c-4668-b6c7-2b69924840d2`);
+  const response = await fetch(`https://run.mocky.io/v3/6914f13e-b54b-46e2-93fa-66fa73ced774`);
   if (!response.ok) {
     throw new Error('Erro ao buscar produtos');
   }
