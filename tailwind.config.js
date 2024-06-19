@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      lineHeight:{
+        '63px':'63px',
+      },
       borderWidth:{
         '1px':'1px',
       },
@@ -37,6 +40,7 @@ module.exports = {
         '52px':'52px',
         '18px':'18px',
         '40px':'40px',
+        '42px':'42px',
         '20px':'20px',
         '25px':'25px',
         '28px':'28px',
