@@ -20,7 +20,7 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
     const calculateSubtotal = () => {
       let total = 0;
       products.forEach((product) => {
-        total += product.price;
+        total += product.price * product.quantity;
       });
       setSubtotal(total);
     };
@@ -86,7 +86,7 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
                       </h3>
                       <div className="flex flex-row gap-5">
                         <section className="text-black font-medium">
-                          1x{" "}
+                          {product.quantity}{"x "}
                         </section>
                         <section className="text-yellowPrimary font-medium">
                           Rs. {product.price}

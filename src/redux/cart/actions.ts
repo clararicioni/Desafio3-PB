@@ -15,3 +15,8 @@ export const setSelectedProduct = (product: Product) => ({
     type: CartActionTypes.SET_SELECTED_PRODUCT,
     payload: product
 });
+
+export const updateQuantityInCart = (productId: number, quantity?: number) => ({
+    type: CartActionTypes.UPDATE_QUANTITY_IN_CART,
+    payload: { productId, quantity }
+  });

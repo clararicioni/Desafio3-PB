@@ -1,6 +1,7 @@
 import { CartActionTypes } from "./action-types";
 
 export interface Product {
+  quantity: number;
   id: number;
   name: string;
   price: number;
@@ -47,6 +48,15 @@ const cartReducer = (state = initialState, action: { type: any; payload: any }) 
         ...state,
         selectedProduct: action.payload,
       };
+      case CartActionTypes.UPDATE_QUANTITY_IN_CART:
+        const { productId, quantity } = action.payload;
+        const updatedProducts = state.products.map(product =>
+          product.id === productId ? { ...product, quantity } : product
+        );
+        return {
+          ...state,
+          products: updatedProducts
+        };
     default:
       return state;
   }
