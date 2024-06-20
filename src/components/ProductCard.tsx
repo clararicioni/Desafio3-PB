@@ -38,6 +38,7 @@ const ProductCard: React.FC<CardProps> = ({
         oldPrice,
         discount,
         new: isNew,
+        quantity: 1
       })
     );
   };
@@ -53,6 +54,7 @@ const ProductCard: React.FC<CardProps> = ({
       oldPrice,
       discount,
       new: isNew,
+      quantity: 1
     }));
     navigate("/singleproduct")
   };
