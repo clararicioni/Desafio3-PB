@@ -20,7 +20,7 @@ const SingleProduct: React.FC = () => {
   const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     if (selectedProduct) {
-      dispatch(addProductToCart(selectedProduct));
+      dispatch(addProductToCart({ ...selectedProduct, quantity }));
     }
   };
 
@@ -96,27 +96,27 @@ const SingleProduct: React.FC = () => {
     <div className="font-poppins select-none">
       <Navbar />
       <Breadcrumbs productName={selectedProduct.name} />
-      <div className="flex justify-center items-center mt-10">
-        <div className="flex flex-row gap-6 items-start">
-          <div className="hidden sm:flex flex-col gap-6">
-            <img src="/sidecard1.png" alt="sidecard 1" className="max-w-44" />
-            <img src="/sidecard2.png" alt="sidecard 2" className="max-w-44" />
-            <img src="/sidecard3.png" alt="sidecard 3" className="max-w-44" />
-            <img src="/sidecard4.png" alt="sidecard 4" className="max-w-44" />
-          </div>
+      <div className="flex flex-col justify-center md:flex-row mt-10 space-y-6 md:space-y-0">
+        <div className="hidden md:block lg:flex flex-col gap-6 mr-2">
+          <img src="/sidecard1.png" alt="sidecard 1" className="max-w-20" />
+          <img src="/sidecard2.png" alt="sidecard 2" className="max-w-20" />
+          <img src="/sidecard3.png" alt="sidecard 3" className="max-w-20" />
+          <img src="/sidecard4.png" alt="sidecard 4" className="max-w-20" />
+        </div>
+        <div className="flex lg:flex-row md:flex-col sm:flex sm:flex-col">
           <img
             src={selectedProduct.imageUrl}
             alt="single product"
-            className="rounded-md max-w-96"
+            className="w-full rounded-md max-h-96 mb-6 md:mb-0 md:mr-10"
           />
-          <div className="flex flex-col ml-10">
-            <section className="font-normal text-black text-42px">
+          <div className="flex flex-col">
+            <section className="font-normal text-black text-4xl text-center md:text-left mb-2">
               {selectedProduct.name}
             </section>
-            <section className="font-medium text-grayText text-2xl">
+            <section className="font-medium text-grayText text-2xl text-center md:text-left">
               Rs. {selectedProduct.price}
             </section>
-            <div className="flex flex-row mt-5">
+            <div className="flex items-center mt-5 max-w-96">
               {items.map((rate) => (
                 <Star
                   onClick={() => onClickStar(rate)}
@@ -128,7 +128,7 @@ const SingleProduct: React.FC = () => {
                 | 5 Customer Review
               </section>
             </div>
-            <section className="text-black text-1xl font-normal max-w-lg mt-5 mb-5">
+            <section className="text-black text-base font-normal max-w-full mt-5 mb-5 text-center md:text-left">
               {selectedProduct.description}
             </section>
             <label htmlFor="size" className="text-grayText">
@@ -143,19 +143,19 @@ const SingleProduct: React.FC = () => {
                     selectedSize === size
                       ? "bg-yellowPrimary text-white"
                       : "bg-salmonCheckout text-black"
-                  } rounded-md text-1xl p-5 max-w-7 max-h-7 items-center justify-center flex hover:bg-yellowPrimary hover:text-white`}
+                  } rounded-md text-base p-3 max-w-7 max-h-7 flex items-center justify-center hover:bg-yellowPrimary hover:text-white`}
                 >
                   {size}
                 </button>
               ))}
             </div>
-            <label htmlFor="size" className="text-grayText mt-5">
+            <label htmlFor="color" className="text-grayText mt-5">
               Color
             </label>
             <div className="flex flex-row gap-5 mt-2">
-              <button className="bg-purple-700 rounded-full p-5 hover:opacity-75"></button>
-              <button className="bg-black rounded-full p-5 hover:opacity-75"></button>
-              <button className="bg-yellowPrimary rounded-full p-5 hover:opacity-75"></button>
+              <button className="bg-purple-700 rounded-full p-3 hover:opacity-75"></button>
+              <button className="bg-black rounded-full p-3 hover:opacity-75"></button>
+              <button className="bg-yellowPrimary rounded-full p-3 hover:opacity-75"></button>
             </div>
             <div className="flex flex-row gap-4 mt-5">
               <div className="flex items-center p-3 border-2 rounded-lg max-h-14">
@@ -171,19 +171,19 @@ const SingleProduct: React.FC = () => {
               </div>
               <button
                 type="submit"
-                className="mb-10 max-h-14 items-center justify-center flex border-2 rounded-lg 
-            bg-white border-black text-black p-5 hover:bg-black hover:text-white"
+                className="mb-10 max-h-14 max-w-64 flex items-center justify-center border-2 rounded-lg 
+                bg-white border-black text-black p-3 hover:bg-black hover:text-white"
                 onClick={handleAddToCart}
               >
                 Add To Cart
               </button>
             </div>
             <section className="border-b border-gray-300 mb-10"></section>
-            <div className="text-grayText text-1xl space-y-5 mb-20">
+            <div className="text-grayText text-base space-y-5 mb-20">
               <section>SKU : SS01</section>
               <section>Category : Furniture</section>
               <section>Tags : Sofa, Chair, Home, Shop, Furniture</section>
-              <section className="flex flex-row items-center gap-3">
+              <section className="flex items-center gap-3">
                 Share:
                 <a
                   href="https://www.facebook.com/"
