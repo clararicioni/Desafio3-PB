@@ -48,15 +48,20 @@ const cartReducer = (state = initialState, action: { type: any; payload: any }) 
         ...state,
         selectedProduct: action.payload,
       };
-      case CartActionTypes.UPDATE_QUANTITY_IN_CART:
-        const { productId, quantity } = action.payload;
-        const updatedProducts = state.products.map(product =>
-          product.id === productId ? { ...product, quantity } : product
-        );
-        return {
-          ...state,
-          products: updatedProducts
-        };
+    case CartActionTypes.UPDATE_QUANTITY_IN_CART:
+      const { productId, quantity } = action.payload;
+      const updatedProducts = state.products.map(product =>
+        product.id === productId ? { ...product, quantity } : product
+      );
+      return {
+        ...state,
+        products: updatedProducts
+      };
+    case CartActionTypes.CLEAR_CART: 
+      return {
+        ...state,
+        products: []
+      };
     default:
       return state;
   }

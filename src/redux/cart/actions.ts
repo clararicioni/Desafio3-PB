@@ -19,4 +19,8 @@ export const setSelectedProduct = (product: Product) => ({
 export const updateQuantityInCart = (productId: number, quantity?: number) => ({
     type: CartActionTypes.UPDATE_QUANTITY_IN_CART,
     payload: { productId, quantity }
-  });
+});
+
+export const clearCart = () => ({
+    type: CartActionTypes.CLEAR_CART
+});

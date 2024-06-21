@@ -9,6 +9,7 @@ import Quality from "../components/Quality";
 import InitialSection from "../components/InitialSection";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/root-reducer";
+import { clearCart } from "../redux/cart/actions";
 
 const Checkout: React.FC = () => {
   const { products } = useSelector((state: RootState) => state.cartReducer);
@@ -45,6 +46,7 @@ const Checkout: React.FC = () => {
   const onSubmit = (data: CheckoutFormData) => {
     dispatch(saveCheckoutInfo(data));
     setSavedMessageVisible(true);
+    dispatch(clearCart());
   };
 
   const formatZipCode = (value: string) => {
@@ -214,7 +216,7 @@ const Checkout: React.FC = () => {
             })}
             type="email"
             className={`border-grayText border-1px outline-none rounded-md max-h-12 p-4 w-full md:max-w-453px
-           mb-8 ${errors.email ? "border-red-500 mb-0" : ""}`}
+           ${errors.email ? "border-red-500 mb-0" : ""}`}
             placeholder="Enter your email address"
           />
           {errors.email && errors.email.type === "validate" && (
@@ -227,7 +229,7 @@ const Checkout: React.FC = () => {
           )}
           <input
             type="text"
-            className="border-grayText outline-none rounded-md max-h-12 p-4 w-full md:max-w-453px mb-10 border-1px"
+            className="border-grayText outline-none rounded-md max-h-12 p-4 w-full md:max-w-453px mb-10 border-1px mt-5"
             placeholder="Additional information"
           />
           <button
@@ -348,7 +350,7 @@ const Checkout: React.FC = () => {
                   }`}</li>
                   <li>{`Email Address: ${checkoutInfo.email}`}</li>
                   <li className="text-green-700 text-2xl font-semibold mt-5">
-                    Seu pedido foi recebido e será preparado para envio.
+                  Your order has been received and will be prepared for shipping. 
                   </li>
                 </ul>
               </div>
