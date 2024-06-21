@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { saveCheckoutInfo } from "../redux/user/actions";
@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux/root-reducer";
 
 const Checkout: React.FC = () => {
+  const { products } = useSelector((state: RootState) => state.cartReducer);
   const dispatch = useDispatch();
   const checkoutInfo = useSelector(
     (state: RootState) => state.userReducer.checkoutInfo
@@ -22,6 +23,16 @@ const Checkout: React.FC = () => {
     setValue,
     formState: { errors },
   } = useForm<CheckoutFormData>();
+
+  const [subtotal, setSubtotal] = useState<number>(0);
+
+  useEffect(() => {
+    let total = 0;
+    products.forEach((product) => {
+      total += product.price * product.quantity;
+    });
+    setSubtotal(total);
+  }, [products]);
 
   const [savedMessageVisible, setSavedMessageVisible] = useState(false);
 
@@ -225,51 +236,44 @@ const Checkout: React.FC = () => {
           >
             Place order
           </button>
-          {savedMessageVisible && (
-            <div className="mt-4 mb-4">
-              <p className="font-medium text-black">Informações salvas:</p>
-              <ul className="list-disc pl-5 mt-2">
-                <li>{`First Name: ${checkoutInfo.firstName}`}</li>
-                <li>{`Last Name: ${checkoutInfo.lastName}`}</li>
-                <li>{`Company Name: ${checkoutInfo.companyName || "-"}`}</li>
-                <li>{`ZIP Code: ${checkoutInfo.zipCode}`}</li>
-                <li>{`Country / Region: ${checkoutInfo.countryRegion}`}</li>
-                <li>{`Street Address: ${checkoutInfo.streetAddress}`}</li>
-                <li>{`Town / City: ${checkoutInfo.townCity}`}</li>
-                <li>{`Province: ${checkoutInfo.province}`}</li>
-                <li>{`Add-on Address: ${checkoutInfo.addOnAddress || "-"}`}</li>
-                <li>{`Email Address: ${checkoutInfo.email}`}</li>
-              </ul>
-            </div>
-          )}
         </form>
-
         <div className="flex flex-col mt-20">
-          <div className="flex flex-row mb-10 justify-between">
+          <div className="flex flex-row mb-6 justify-between">
             <div className="flex flex-col">
               <section className="text-2xl font-medium text-black">
                 Product
               </section>
-              <section className="text-1xl font-medium text-grayText">
-                Aasgard sofa x1
-              </section>
+              {products.map((product) => (
+                <div key={product.id} className="flex flex-row mb-2">
+                  <section className="text-1xl font-medium text-grayText mr-5">
+                    {product.name}
+                  </section>
+                  <section className="text-1xl font-medium text-black mr-2">
+                    {product.quantity}x
+                  </section>
+                </div>
+              ))}
             </div>
             <div className="flex flex-col">
               <section className="text-2xl font-medium text-black">
                 Subtotal
               </section>
-              <section className="text-1xl font-normal text-black">
-                Rs. 2500000
-              </section>
+              {products.map((product) => (
+                <div key={product.id} className="flex flex-row mb-2">
+                  <section className="text-1xl font-normal text-black">
+                    Rs. {product.price * product.quantity}
+                  </section>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col mt-6">
             <div className="flex flex-row items-center justify-between">
               <section className="text-1xl font-normal text-black">
                 Subtotal
               </section>
               <section className="text-1xl font-normal text-black">
-                Rs. 2500000
+                Rs. {subtotal}
               </section>
             </div>
             <div className="flex flex-row items-center justify-between mt-4">
@@ -277,7 +281,7 @@ const Checkout: React.FC = () => {
                 Total
               </section>
               <section className="text-yellowPrimary text-2xl font-bold">
-                Rs. 2500000
+                Rs. {subtotal}
               </section>
             </div>
           </div>
@@ -327,7 +331,28 @@ const Checkout: React.FC = () => {
               throughout this website, to manage access to your account, and for
               other purposes described in our privacy policy.
             </section>
-            <div className="mt-10 mx-auto flex justify-center"></div>
+            {savedMessageVisible && (
+              <div className="mt-4 mb-4">
+                <p className="font-medium text-black">Informações salvas:</p>
+                <ul className="list-disc pl-5 mt-2">
+                  <li>{`First Name: ${checkoutInfo.firstName}`}</li>
+                  <li>{`Last Name: ${checkoutInfo.lastName}`}</li>
+                  <li>{`Company Name: ${checkoutInfo.companyName || "-"}`}</li>
+                  <li>{`ZIP Code: ${checkoutInfo.zipCode}`}</li>
+                  <li>{`Country / Region: ${checkoutInfo.countryRegion}`}</li>
+                  <li>{`Street Address: ${checkoutInfo.streetAddress}`}</li>
+                  <li>{`Town / City: ${checkoutInfo.townCity}`}</li>
+                  <li>{`Province: ${checkoutInfo.province}`}</li>
+                  <li>{`Add-on Address: ${
+                    checkoutInfo.addOnAddress || "-"
+                  }`}</li>
+                  <li>{`Email Address: ${checkoutInfo.email}`}</li>
+                  <li className="text-green-700 text-2xl font-semibold mt-5">
+                    Seu pedido foi recebido e será preparado para envio.
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -336,5 +361,4 @@ const Checkout: React.FC = () => {
     </div>
   );
 };
-
 export default Checkout;
