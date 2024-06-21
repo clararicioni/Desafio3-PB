@@ -75,6 +75,19 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.scaleTransition': {
+          transform: 'scale(1)',
+          transition: 'transform 200ms ease-in-out',
+          '&:hover': {
+            transform: 'scale(1.10)',
+          },
+        },
+      };
+      addUtilities(newUtilities, ['hover']);
+    },
+  ],
 }
 

@@ -37,24 +37,24 @@ const Navbar = () => {
             <div className="text-4xl font-bold m-0">Furniro</div>
           </div>
           <div className="hidden md:flex items-center justify-center space-x-16">
-            <Link to="/" className="hover:font-bold">
+            <Link to="/" className="hover:font-bold hover:scale-125 transform transition duration-100">
               Home
             </Link>
-            <Link to="/shop" className="hover:font-bold">
+            <Link to="/shop" className="hover:font-bold hover:scale-125 transform transition duration-100">
               Shop
             </Link>
-            <Link to="/about" className="hover:font-bold">
+            <Link to="/about" className="hover:font-bold hover:scale-125 transform transition duration-100">
               About
             </Link>
-            <Link to="/contact" className="hover:font-bold">
+            <Link to="/contact" className="hover:font-bold hover:scale-125 transform transition duration-100">
               Contact
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8 mr-12">
-            <button onClick={toggleProfilePopup} className="hover:font-bold">
+            <button onClick={toggleProfilePopup} className="hover:font-bold hover:scale-125 transition duration-100">
               <img src="/people-icon.svg" alt="Profile" />
             </button>
-            <button onClick={toggleCart} className="hover:font-bold">
+            <button onClick={toggleCart} className="hover:font-bold hover:scale-125 transition duration-100">
               <img src="/cart-icon.svg" alt="Cart" />
             </button>
           </div>

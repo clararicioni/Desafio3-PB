@@ -57,7 +57,7 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
       {isOpen && (
         <div
           ref={sidebarRef}
-          className="fixed top-0 right-0 bottom-0 w-96 bg-white shadow-xl z-50 font-poppins overflow-y-auto"
+          className="fixed top-0 right-0 bottom-0 w-96 bg-white shadow-xl z-50 font-poppins overflow-y-auto select-none"
           style={{ maxHeight: "100vh" }}
         >
           <div className="fixed bg-white w-full p-10 border-b border-gray-200">

@@ -9,7 +9,7 @@ const NotFoundPage: React.FC = () => {
         404 - Page not found
       </h1>
       <section className="text-2xl text-black font-bold text-center mb-10">
-        The page you are looking for doesn't exist.
+        We are working on new features
       </section>
       <div className="max-w-full sm:max-w-2xl lg:max-w-lg">
         <Splide

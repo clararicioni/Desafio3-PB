@@ -49,7 +49,11 @@ const Login = () => {
   return (
     <div className="bg-gray-100 h-screen flex justify-center items-center font-poppins">
       <div className="bg-white p-8 rounded shadow-md w-96">
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
+        <div className="flex items-center">
+          <img src="logo.png" alt="logo" className="w-16 h-16" />
+          <h2 className="text-3xl font-bold">Furniro</h2>
+        </div>
+        <h2 className="text-2xl text-darkBlack font-bold mb-4">Login</h2>
         <form onSubmit={handleSignIn}>
           <div className="mb-4">
             <label className="block text-gray-700 font-semibold mb-2">

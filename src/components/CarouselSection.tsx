@@ -1,6 +1,7 @@
 import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { Link } from "react-router-dom";
 
 const roomPrototypes = [
   { id: 1, name: "SPLIDE 1", image: "splide1.png" },
@@ -20,9 +21,11 @@ const CarouselSection = () => {
         <section className="font-medium text-lg text-grayText5 max-w-md mt-3 mb-5 text-center md:text-left">
             Our designer already made a lot of beautiful prototipe of rooms that inspire you
         </section>
-        <button className="flex justify-center font-semibold bg-yellowPrimary p-3 md:p-5 lg:max-w-176px max-h-12 items-center text-white text-lg hover:opacity-75 sm:max-w-md">
-          Explore More
-        </button>
+        <Link to="/shop" target="_blank">
+          <button className="flex justify-center font-semibold bg-yellowPrimary p-3 md:p-5 lg:max-w-176px max-h-12 items-center text-white text-lg hover:opacity-75 sm:max-w-md">
+            Explore More
+          </button>
+        </Link>
       </div>
 
       <div className="relative mt-10 md:mt-0">

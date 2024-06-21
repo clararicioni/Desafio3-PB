@@ -107,7 +107,7 @@ const Checkout: React.FC = () => {
                 placeholder="Enter your first name"
               />
               {errors.firstName && errors.firstName.type === "validate" && (
-                <span className="text-red-500">
+                <span className="text-red-500 max-w-56">
                   First name cannot contain numbers.
                 </span>
               )}
@@ -131,7 +131,7 @@ const Checkout: React.FC = () => {
                 placeholder="Enter your last name"
               />
               {errors.lastName && errors.lastName.type === "validate" && (
-                <span className="text-red-500">
+                <span className="text-red-500 max-w-56">
                   Last name cannot contain numbers.
                 </span>
               )}
