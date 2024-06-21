@@ -93,19 +93,19 @@ const Home = () => {
 
         <div className="flex flex-wrap gap-6 justify-center mt-8 sm:mt-10 lg:mt-14">
           <div className="flex flex-col items-center w-1/2 sm:w-1/3 md:w-1/4">
-            <img src="dining.png" alt="Dining" className="w-full h-auto" />
+            <img src="dining.png" alt="Dining" className="w-full h-auto scaleTransition" />
             <section className="text-darkBlack text-lg sm:text-xl lg:text-2xl mt-4 sm:mt-5 lg:mt-7 font-semibold">
               Dining
             </section>
           </div>
           <div className="flex flex-col items-center w-1/2 sm:w-1/3 md:w-1/4">
-            <img src="living.png" alt="Living" className="w-full h-auto" />
+            <img src="living.png" alt="Living" className="w-full h-auto scaleTransition" />
             <section className="text-darkBlack text-lg sm:text-xl lg:text-2xl mt-4 sm:mt-5 lg:mt-7 font-semibold">
               Living
             </section>
           </div>
           <div className="flex flex-col items-center w-1/2 sm:w-1/3 md:w-1/4">
-            <img src="bedroom.png" alt="Bedroom" className="w-full h-auto" />
+            <img src="bedroom.png" alt="Bedroom" className="w-full h-auto scaleTransition" />
             <section className="text-darkBlack text-lg sm:text-xl lg:text-2xl mt-4 sm:mt-5 lg:mt-7 font-semibold">
               Bedroom
             </section>
@@ -134,7 +134,8 @@ const Home = () => {
         <div className="flex justify-center">
           <Link to="/shop" target="_blank">
             <button
-              className="flex justify-center items-center font-bold text-1xl text-yellowPrimary p-5 outline-1 outline hover:opacity-75 mt-10"
+              className="flex justify-center items-center font-bold text-1xl text-yellowPrimary p-5 outline-1 outline hover:opacity-75 mt-10
+              scaleTransition"
               style={{ width: "245px", height: "48px" }}
             >
               Show More

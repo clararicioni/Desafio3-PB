@@ -19,7 +19,11 @@ export function Register (){
   return (
     <div className="bg-gray-100 h-screen flex justify-center items-center font-poppins">
     <div className="bg-white p-8 shadow-md w-96 rounded-lg">
-        <h2 className="text-2xl font-bold mb-4">Register</h2>
+    <div className="flex items-center">
+          <img src="logo.png" alt="logo" className="w-16 h-16" />
+          <h2 className="text-3xl font-bold">Furniro</h2>
+        </div>
+        <h2 className="text-2xl text-darkGrayText font-bold mb-4">Register</h2>
         <form>
             <div className="mb-4">
                 <label className="block text-gray-700 font-semibold mb-2">Email</label>

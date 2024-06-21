@@ -71,7 +71,7 @@ const ProductCard: React.FC<CardProps> = ({
 
   return (
       <div
-        className="max-w-sm overflow-hidden bg-grayBackground relative group cursor-pointer"
+        className="max-w-sm overflow-hidden bg-grayBackground relative group cursor-pointer scaleTransition"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={handleCardClick}

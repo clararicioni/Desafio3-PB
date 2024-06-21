@@ -50,7 +50,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="font-poppins">
+    <div className="font-poppins select-none">
       <Navbar />
       <InitialSection pageName="Cart" />
       <div className="flex flex-col md:flex-row md:space-x-4 m-4 p-4">
@@ -117,7 +117,7 @@ const Cart = () => {
                         <img
                           src="/trash.png"
                           alt="delete product from cart"
-                          className="w-6 h-6 mx-auto"
+                          className="w-6 h-6 mx-auto hover:scale-125 transition duration-100"
                         />
                       </button>
                     </td>

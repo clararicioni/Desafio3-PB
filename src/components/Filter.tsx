@@ -70,14 +70,14 @@ const Filter: React.FC<FilterProps> = ({
     >
       <div className="flex items-center gap-5">
         <button onClick={toggleFilter}>
-          <img src="filtericon.png" alt="" className="ml-0 md:ml-20" />
+          <img src="filtericon.png" alt="" className="ml-0 md:ml-20 hover:scale-125 transition duration-100" />
         </button>
         <section className="text-20px ml-2 md:ml-0">Filter</section>
         <button>
-          <img src="filtercolumn.png" alt="" className="ml-2" />
+          <img src="filtercolumn.png" alt="" className="ml-2 hover:scale-125 transition duration-100" />
         </button>
         <button>
-          <img src="filter2.png" alt="" className="ml-2" />
+          <img src="filter2.png" alt="" className="ml-2 hover:scale-125 transition duration-100" />
         </button>
         <img src="pipe.png" alt="" className="ml-2" />
         <section className="text-1xl text-black mt-2 md:mt-0">
@@ -126,7 +126,7 @@ const Filter: React.FC<FilterProps> = ({
           value={showValue}
           onChange={handleShowChange}
           placeholder={`Show ${showValue} items`}
-          className="p-2 max-w-12 outline-none text-grayText"
+          className="p-2 max-w-16 outline-none text-grayText"
         />
         <section className="ml-2 md:ml-4 mr-3">Short by</section>
         <input
