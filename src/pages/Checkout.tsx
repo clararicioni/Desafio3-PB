@@ -1,39 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { saveCheckoutInfo } from "../redux/user/actions";
+import { CheckoutFormData } from "../redux/user/types";
 import Navbar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Quality from "../components/Quality";
 import InitialSection from "../components/InitialSection";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/root-reducer";
 
-interface FormData {
-  firstName: string;
-  lastName: string;
-  companyName?: string;
-  zipCode: string;
-  countryRegion: string;
-  streetAddress: string;
-  townCity: string;
-  province: string;
-  addOnAddress?: string;
-  email: string;
-}
-
-const Checkout = () => {
-  const fetchAddress = async (zipCode: string) => {
-    const response = await fetch(`https://viacep.com.br/ws/${zipCode}/json/`);
-    const data = await response.json();
-    return data;
-  };
+const Checkout: React.FC = () => {
+  const dispatch = useDispatch();
+  const checkoutInfo = useSelector(
+    (state: RootState) => state.userReducer.checkoutInfo
+  );
 
   const {
     handleSubmit,
     register,
     setValue,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<CheckoutFormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
+  const [savedMessageVisible, setSavedMessageVisible] = useState(false);
+
+  const fetchAddress = async (zipCode: string) => {
+    const response = await fetch(`https://viacep.com.br/ws/${zipCode}/json/`);
+    const data = await response.json();
+    return data;
+  };
+
+  const onSubmit = (data: CheckoutFormData) => {
+    dispatch(saveCheckoutInfo(data));
+    setSavedMessageVisible(true);
   };
 
   const formatZipCode = (value: string) => {
@@ -225,7 +225,25 @@ const Checkout = () => {
           >
             Place order
           </button>
+          {savedMessageVisible && (
+            <div className="mt-4 mb-4">
+              <p className="font-medium text-black">Informações salvas:</p>
+              <ul className="list-disc pl-5 mt-2">
+                <li>{`First Name: ${checkoutInfo.firstName}`}</li>
+                <li>{`Last Name: ${checkoutInfo.lastName}`}</li>
+                <li>{`Company Name: ${checkoutInfo.companyName || "-"}`}</li>
+                <li>{`ZIP Code: ${checkoutInfo.zipCode}`}</li>
+                <li>{`Country / Region: ${checkoutInfo.countryRegion}`}</li>
+                <li>{`Street Address: ${checkoutInfo.streetAddress}`}</li>
+                <li>{`Town / City: ${checkoutInfo.townCity}`}</li>
+                <li>{`Province: ${checkoutInfo.province}`}</li>
+                <li>{`Add-on Address: ${checkoutInfo.addOnAddress || "-"}`}</li>
+                <li>{`Email Address: ${checkoutInfo.email}`}</li>
+              </ul>
+            </div>
+          )}
         </form>
+
         <div className="flex flex-col mt-20">
           <div className="flex flex-row mb-10 justify-between">
             <div className="flex flex-col">

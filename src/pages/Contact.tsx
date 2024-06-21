@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Quality from "../components/Quality";
 import InitialSection from "../components/InitialSection";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../redux/root-reducer";
+import { ContactFormData } from "../redux/user/types";
+import { saveContactInfo } from "../redux/user/actions";
 
 type ContactInfoProps = {
   icon: string;
@@ -12,21 +16,29 @@ type ContactInfoProps = {
 };
 
 const Contact: React.FC = () => {
+  const dispatch = useDispatch();
+  const contactInfo = useSelector(
+    (state: RootState) => state.userReducer.contactInfo
+  );
+
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm();
+  } = useForm<ContactFormData>();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-  };
+  const [savedMessageVisible, setSavedMessageVisible] = useState(false);
 
   const validateEmail = (value: string) => {
     if (!value.includes(".com")) {
       return "Email must contain '.com'";
     }
     return true;
+  };
+
+  const onSubmit = (data: ContactFormData) => {
+    dispatch(saveContactInfo(data));
+    setSavedMessageVisible(true);
   };
 
   return (
@@ -65,47 +77,56 @@ const Contact: React.FC = () => {
               <label className="font-medium text-lg mb-2">Your name</label>
               <input
                 type="text"
-                {...register('name', { required: true })}
+                {...register("name", { required: true })}
                 placeholder="Enter your name"
                 className={`border-grayText outline-none rounded-md border-1px p-2 h-12 px-4 mb-4 ${
-                  errors.name ? 'border-red-500' : ''
+                  errors.name ? "border-red-500" : ""
                 }`}
               />
-              {errors.name && errors.name.type === 'required' && (
-                <span className="text-red-500 text-sm mb-4">Name is required</span>
+              {errors.name && errors.name.type === "required" && (
+                <span className="text-red-500 text-sm mb-4">
+                  Name is required
+                </span>
               )}
 
               <label className="font-medium text-lg mb-2">Email address</label>
               <input
                 type="email"
-                {...register('email', { required: true, validate: validateEmail })}
+                {...register("email", {
+                  required: true,
+                  validate: validateEmail,
+                })}
                 placeholder="Enter your email"
                 className={`border-grayText outline-none rounded-md border-1px p-2 h-12 px-4 mb-4 ${
-                  errors.email ? 'border-red-500' : ''
+                  errors.email ? "border-red-500" : ""
                 }`}
               />
-              {errors.email && typeof errors.email === 'string' && (
-                <span className="text-red-500 text-sm mb-4">{errors.email}</span>
+              {errors.email && typeof errors.email === "string" && (
+                <span className="text-red-500 text-sm mb-4">
+                  {errors.email}
+                </span>
               )}
 
               <label className="font-medium text-lg mb-2">Subject</label>
               <input
                 type="text"
-                {...register('subject')}
+                {...register("subject")}
                 placeholder="Enter subject (optional)"
                 className="border-grayText outline-none rounded-md border-1px p-2 h-12 px-4 mb-4"
               />
 
               <label className="font-medium text-lg mb-2">Message</label>
               <textarea
-                {...register('message', { required: true })}
+                {...register("message", { required: true })}
                 placeholder="Enter your message"
                 className={`resize-none border-grayText outline-none rounded-md border-1px p-2 h-32 px-4 mb-4 ${
-                  errors.message ? 'border-red-500' : ''
+                  errors.message ? "border-red-500" : ""
                 }`}
               />
               {errors.message && (
-                <span className="text-red-500 text-sm mb-4">Message is required</span>
+                <span className="text-red-500 text-sm mb-4">
+                  Message is required
+                </span>
               )}
 
               <button
@@ -115,6 +136,17 @@ const Contact: React.FC = () => {
                 Submit
               </button>
             </div>
+            {savedMessageVisible && (
+              <div className="mt-4 mb-4">
+                <p className="font-medium text-black">Informações salvas:</p>
+                <ul className="list-disc pl-5 mt-2">
+                  <li>{`Name: ${contactInfo.name}`}</li>
+                  <li>{`Email: ${contactInfo.email}`}</li>
+                  <li>{`Subject: ${contactInfo.subject}`}</li>
+                  <li>{`Message: ${contactInfo.message}`}</li>
+                </ul>
+              </div>
+            )}
           </form>
         </div>
       </div>
