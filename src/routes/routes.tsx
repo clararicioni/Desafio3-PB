@@ -8,6 +8,7 @@ import Cart from "../pages/Cart";
 import Login from "../pages/Login";
 import ProtectedRoute from "./ProtectedRoute";
 import Register from "../pages/Register"
+import NotFoundPage from "../pages/NotFoundPage";
 
 function MainRoutes(){
     return(
@@ -20,6 +21,7 @@ function MainRoutes(){
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFoundPage />}/>
     </Routes>
     )
 }
