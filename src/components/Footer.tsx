@@ -26,8 +26,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="flex flex-col text-black bg-white bottom-0 w-full items-center bg-blend-multiply md:pb-14 md:pt-20 md:px-24 md:h-[35.75rem] font-poppins outline-none">
-      <div className="flex flex-col h-full justify-between border-b border-borderColor w-full mb-7 md:flex-row">
+    <footer className="flex flex-col text-black bg-white bottom-0 w-full items-center bg-blend-multiply md:pb-14 md:pt-20 md:px-24 md:h-[35.75rem] font-poppins outline-none border-t border-gray-300">
+      <div className="flex flex-col h-full justify-between border-b border-gray-300 w-full mb-7 md:flex-row sm:flex-row mt-10">
         <div className="w-full flex flex-col mb-8 items-center md:mb-6 md:items-start md:w-fit">
           <h1 className="font-bold mb-5 text-2xl">Funiro.</h1>
           <div className="text-base text-grayText mb-5">
@@ -64,7 +64,7 @@ const Footer = () => {
         </div>
         <div className="w-full flex flex-row justify-center text-center md:text-left md:pr-5 md:w-fit md:items-start">
           <div className="flex pr-10 mb-4 md:mb-0 md:pr-10">
-            <ul className="mr-10">
+            <ul className="mr-10 space-y-10">
               <li className="text-1xl text-grayText font-medium mb-4">Links</li>
               <li>
                 <Link
@@ -101,31 +101,16 @@ const Footer = () => {
             </ul>
           </div>
           <div className="flex pr-10 mb-4 md:mb-0 md:pr-10">
-            <ul className="mr-10">
+            <ul className="mr-10 space-y-10">
               <li className="text-1xl text-grayText font-medium mb-4">Help</li>
-              <li>
-                <Link
-                  to="/aboutus"
-                  className="font-medium transition-all hover:underline hover:text-primaryAvacado"
-                >
+              <li className="font-medium transition-all hover:underline hover:text-primaryAvacado">
                   Payment Options
-                </Link>
               </li>
-              <li>
-                <Link
-                  to="/product"
-                  className="font-medium transition-all hover:underline hover:text-primaryAvacado"
-                >
+              <li className="font-medium transition-all hover:underline hover:text-primaryAvacado">
                   Returns
-                </Link>
               </li>
-              <li>
-                <Link
-                  to="/blogs"
-                  className="font-medium transition-all hover:underline hover:text-primaryAvacado"
-                >
+              <li className="font-medium transition-all hover:underline hover:text-primaryAvacado">
                   Privacy Policies
-                </Link>
               </li>
             </ul>
           </div>
@@ -134,26 +119,27 @@ const Footer = () => {
               <li className="text-1xl text-grayText font-medium mb-4">
                 Newsletter
               </li>
-              <li>
+                <div className="flex flex-row gap-2">
+                  <div className="md:flex-col sm:flex-col">
                 <input
                   type="text"
                   placeholder="Enter Your Email Address"
-                  className="outline-none underline p10"
+                  className="outline-none border-b border-black p-2 mr-2"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-              </li>
-              <li>
                 <button
-                  className="font-medium underline"
+                  className="font-medium border-b border-black hover:bg-black hover:text-white p-2"
                   onClick={handleSubmit}
                 >
+                  
                   SUBSCRIBE
                 </button>
-              </li>
-              {isValid && <li>Email:{email}</li>}
+                </div>
+                </div>
+              {isValid && <li className="text-green-600 mt-2">Email salvo: {email}</li>}
               {!isValid && errorMessage && (
-                <li className="text-red-500">{errorMessage}</li>
+                <li className="text-red-500 mt-2">{errorMessage}</li>
               )}
             </ul>
           </div>
@@ -163,7 +149,7 @@ const Footer = () => {
         <section className="flex md:hidden justify-center text-center whitespace-nowrap">
           2023 furino. All rights reverved
         </section>
-        <section className="hidden md:flex justify-end text-center">
+        <section className="hidden md:flex justify-end text-center items-center">
           2023 furino. All rights reverved
         </section>
       </div>
