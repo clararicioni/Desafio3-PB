@@ -58,12 +58,12 @@ const Home = () => {
             position: "relative",
           }}
         >
-          <div className="w-full h-full flex items-center justify-end mr-40 mt-24">
+          <div className="w-full h-full flex items-center justify-end mr-40 mt-28">
             <div className="bg-yellowBackground rounded-lg p-8 flex-col">
               <div className="font-semibold text-1xl tracking-widest text-darkBlack mt-5">
                 New Arrival
               </div>
-              <div className="text-52px font-bold max-w-400px text-yellowPrimary leading-tight mt-2">
+              <div className="text-52px font-bold max-w-400px text-yellowPrimary leading-tight mt-2 max-w-lg">
                 Discover Our New Collection
               </div>
               <div className="font-medium text-18px max-w-546px">
