@@ -6,6 +6,7 @@ import InitialSection from "../components/InitialSection";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/root-reducer";
 import { removeFromCart, updateQuantityInCart } from "../redux/cart/actions";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { products } = useSelector((state: RootState) => state.cartReducer);
@@ -141,9 +142,11 @@ const Cart = () => {
             </span>
           </div>
           <div className="flex justify-center">
+            <Link to="/checkout">
             <button className="border-2 border-black text-black rounded-lg p-3 w-48 hover:bg-black hover:text-white">
               Check Out
             </button>
+            </Link>
           </div>
         </div>
       </div>
